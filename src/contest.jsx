@@ -12,7 +12,7 @@ const ContestPage = () => {
     <>
       <section style={{ paddingTop: 160, paddingBottom: 80, position: "relative", overflow: "hidden" }} className="grid-bg">
         <div className="container">
-          <Eyebrow>Event · Annual · Since 2020</Eyebrow>
+          <Eyebrow>Flagship event</Eyebrow>
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 24 : 48, alignItems: "end", marginTop: 32 }}>
             <h1 className="h-display" style={{ margin: 0 }}>START<br/><span className="accent">Contest.</span></h1>
             <div>
@@ -40,7 +40,7 @@ const ContestPage = () => {
               <Reveal key={s.n} delay={i * 100}>
                 <div style={{ padding: m ? "24px 0" : "32px 24px 32px 24px", borderLeft: m ? "none" : "1px solid var(--border)", borderTop: m ? "1px solid var(--border)" : "none", position: "relative", minHeight: m ? "auto" : 360 }}>
                   {!m && <div style={{ position: "absolute", left: -6, top: 40, width: 11, height: 11, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 14px var(--accent-glow)" }} />}
-                  <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 24 }}>STAGE_{s.n}</div>
+                  <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 24 }}>Stage {s.n}</div>
                   <h3 className="h-lg" style={{ marginBottom: 16 }}>{s.t}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>{s.d}</p>
                   <span className="tag">{s.when}</span>
@@ -86,7 +86,7 @@ const ContestPage = () => {
               { y: "2021", name: "Rivière.io", cat: "Climate · EPFL", raise: "€6M Series A" },
             ].map((w, i) => (
               <div key={i} style={{
-                background: "var(--bg)", padding: m ? "20px 16px" : "28px 32px",
+                background: "var(--bg-elev)", padding: m ? "20px 16px" : "28px 32px",
                 display: m ? "flex" : "grid",
                 flexDirection: m ? "column" : undefined,
                 gap: m ? 8 : 32,
@@ -94,8 +94,8 @@ const ContestPage = () => {
                 alignItems: m ? undefined : "center",
                 cursor: "pointer", transition: "background 0.2s"
               }}
-              onMouseEnter={e => e.currentTarget.style.background = "var(--bg-card)"}
-              onMouseLeave={e => e.currentTarget.style.background = "var(--bg)"}>
+              onMouseEnter={e => e.currentTarget.style.background = "var(--accent-soft)"}
+              onMouseLeave={e => e.currentTarget.style.background = "var(--bg-elev)"}>
                 <div className="mono-label" style={{ color: "var(--accent)" }}>{w.y}</div>
                 <div className="h-md" style={{ fontWeight: 500 }}>{w.name}</div>
                 <div className="mono-label">{w.cat}</div>

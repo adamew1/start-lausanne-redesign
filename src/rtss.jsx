@@ -16,7 +16,7 @@ const RtssPage = () => {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 24 : 48, alignItems: "end" }}>
             <div>
-              <Eyebrow>Annual trip · Since 2023</Eyebrow>
+              <Eyebrow>The annual trip</Eyebrow>
               <h1 className="h-display" style={{ marginTop: 32 }}>RtSS<br/><span style={{ fontStyle: "italic", fontWeight: 300, fontSize: "0.55em", opacity: 0.7 }}>Road to the</span><br/><span className="accent">Startup Summit.</span></h1>
             </div>
             <div>
@@ -46,8 +46,8 @@ const RtssPage = () => {
                 <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "80px 40px 1fr", gap: m ? 8 : 24, alignItems: m ? "flex-start" : "center", padding: m ? "20px 0" : "28px 0", borderTop: i === 0 ? "none" : "1px solid var(--border)" }}>
                   <div className="mono-label" style={{ color: "var(--accent)" }}>{s.d}</div>
                   {!m && <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div style={{ width: 12, height: 12, borderRadius: "50%", border: "2px solid var(--accent)", background: "var(--bg)", position: "relative" }}>
-                      <div style={{ position: "absolute", inset: 2, borderRadius: "50%", background: "var(--accent)" }} />
+                    <div style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid var(--accent)", background: "var(--bg-elev)", position: "relative", boxShadow: "0 0 0 6px rgba(59,130,246,0.18)" }}>
+                      <div style={{ position: "absolute", inset: 3, borderRadius: "50%", background: "var(--accent)" }} />
                     </div>
                   </div>}
                   <div>
@@ -72,8 +72,8 @@ const RtssPage = () => {
               { t: "Workshop sessions", d: "Hands-on sessions on fundraising, GTM, hiring, and product with operators." },
               { t: "Partial funding", d: "Costs partially covered via our sponsor program — selected students pay a subsidized fee." },
             ].map((c, i) => (
-              <div key={i} style={{ background: "var(--bg)", padding: m ? 24 : 40, minHeight: m ? "auto" : 180 }}>
-                <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 16 }}>◆ INCLUDED_{String(i+1).padStart(2,"0")}</div>
+              <div key={i} style={{ background: "var(--bg-elev)", padding: m ? 24 : 40, minHeight: m ? "auto" : 180 }}>
+                <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 16 }}>Included</div>
                 <h3 className="h-md" style={{ marginBottom: 12 }}>{c.t}</h3>
                 <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.7 }}>{c.d}</p>
               </div>

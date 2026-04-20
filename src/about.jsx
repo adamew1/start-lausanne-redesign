@@ -2,12 +2,12 @@
 const AboutPage = () => {
   const m = useIsMobile();
   const depts = [
-    { code: "DEPT_01", name: "Events", desc: "Plan, run and deliver 40+ events a year — from intimate founder fireside chats to multi-day competitions.", skills: ["Production", "Logistics", "Community"] },
-    { code: "DEPT_02", name: "Partners", desc: "Acquire, manage and grow relationships with the sponsors and companies that fuel our mission.", skills: ["B2B Sales", "Negotiation", "CRM"] },
-    { code: "DEPT_03", name: "Marketing", desc: "Own the brand. Grow the reach. Design the campaigns that make START unmissable.", skills: ["Content", "Social", "Brand"] },
-    { code: "DEPT_04", name: "Tech", desc: "Build the automations, site, and internal tools that let the rest of the team move at startup speed.", skills: ["Web", "Automations", "Data"] },
-    { code: "DEPT_05", name: "Venture", desc: "Source, scout and support student-founded ventures through our pipeline of programs and competitions.", skills: ["Scouting", "Due Diligence", "Mentorship"] },
-    { code: "DEPT_06", name: "People", desc: "Recruit, onboard and grow the community that makes START more than an association.", skills: ["Recruiting", "Culture", "Ops"] },
+    { name: "Events", desc: "Plan, run and deliver 40+ events a year — from intimate founder fireside chats to multi-day competitions.", skills: ["Production", "Logistics", "Community"] },
+    { name: "Partners", desc: "Acquire, manage and grow relationships with the sponsors and companies that fuel our mission.", skills: ["B2B Sales", "Negotiation", "CRM"] },
+    { name: "Marketing", desc: "Own the brand. Grow the reach. Design the campaigns that make START unmissable.", skills: ["Content", "Social", "Brand"] },
+    { name: "Tech", desc: "Build the automations, site, and internal tools that let the rest of the team move at startup speed.", skills: ["Web", "Automations", "Data"] },
+    { name: "Venture", desc: "Source, scout and support student-founded ventures through our pipeline of programs and competitions.", skills: ["Scouting", "Due Diligence", "Mentorship"] },
+    { name: "People", desc: "Recruit, onboard and grow the community that makes START more than an association.", skills: ["Recruiting", "Culture", "Ops"] },
   ];
 
   const timeline = [
@@ -23,7 +23,7 @@ const AboutPage = () => {
     <>
       <section style={{ paddingTop: 160, paddingBottom: 80, position: "relative" }} className="grid-bg">
         <div className="container">
-          <Eyebrow>About · Chapter 01</Eyebrow>
+          <Eyebrow>About</Eyebrow>
           <h1 className="h-display" style={{ marginTop: 32, maxWidth: "14ch" }}>We're a <span className="accent">student-run</span> launchpad.</h1>
           <p className="lead" style={{ marginTop: 40, fontSize: m ? 18 : 22 }}>Not a club. Not a think tank. START Lausanne is a working association of students who plan real events, sign real partners, and build real things — so the next generation of founders has somewhere to begin.</p>
         </div>
@@ -35,13 +35,12 @@ const AboutPage = () => {
           <SectionLabel num="01" label="Operating principles" />
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(3, 1fr)", gap: 32 }}>
             {[
-              { n: "P_01", t: "Do the thing.", d: "We value shipping over strategizing. Events happen because people book the rooms. Startups exist because someone writes the first line." },
-              { n: "P_02", t: "Room for non-experts.", d: "Half of what you know you learned last month. Our best members come from law, physics, design — not just business." },
-              { n: "P_03", t: "Community compounds.", d: "The people you build with now will be your cofounders, investors and first hires. We take that seriously." },
+              { t: "Do the thing.", d: "We value shipping over strategizing. Events happen because people book the rooms. Startups exist because someone writes the first line." },
+              { t: "Room for non-experts.", d: "Half of what you know you learned last month. Our best members come from law, physics, design — not just business." },
+              { t: "Community compounds.", d: "The people you build with now will be your cofounders, investors and first hires. We take that seriously." },
             ].map((p, i) => (
               <Reveal key={i} delay={i * 120}>
                 <div style={{ borderTop: "1px solid var(--accent)", paddingTop: 24 }}>
-                  <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 24 }}>{p.n}</div>
                   <h3 className="h-lg" style={{ marginBottom: 16 }}>{p.t}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.7 }}>{p.d}</p>
                 </div>
@@ -67,13 +66,12 @@ const AboutPage = () => {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(2, 1fr)", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
             {depts.map((d, i) => (
-              <Reveal key={d.code} delay={i * 80}>
-                <div style={{ background: "var(--bg)", padding: m ? 24 : 32, minHeight: m ? "auto" : 280, cursor: "pointer", transition: "background 0.3s" }}
-                     onMouseEnter={e => e.currentTarget.style.background = "var(--bg-card)"}
-                     onMouseLeave={e => e.currentTarget.style.background = "var(--bg)"}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: m ? 16 : 32 }}>
-                    <span className="mono-label" style={{ color: "var(--accent)" }}>{d.code}</span>
-                    <span className="mono-label">⟶</span>
+              <Reveal key={d.name} delay={i * 80}>
+                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 36, minHeight: m ? "auto" : 280, cursor: "pointer", transition: "background 0.3s" }}
+                     onMouseEnter={e => e.currentTarget.style.background = "var(--accent-soft)"}
+                     onMouseLeave={e => e.currentTarget.style.background = "var(--bg-elev)"}>
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: m ? 16 : 32 }}>
+                    <span className="mono-label" style={{ color: "var(--accent)" }}>⟶</span>
                   </div>
                   <h3 className="h-lg" style={{ marginBottom: 12 }}>{d.name}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.6, marginBottom: 20 }}>{d.desc}</p>

@@ -20,7 +20,7 @@ const HackathonPage = () => {
     <>
       <section style={{ paddingTop: 160, paddingBottom: 40, position: "relative", overflow: "hidden" }} className="grid-bg">
         <div className="container">
-          <Eyebrow>Event · Annual · Since 2022</Eyebrow>
+          <Eyebrow>48-hour hackathon</Eyebrow>
           <h1 className="h-display" style={{ marginTop: 32 }}>START<span className="accent">/</span>Hack<br/><span style={{ fontStyle: "italic", fontWeight: 300, opacity: 0.5 }}>build, ship, repeat.</span></h1>
           <p className="lead" style={{ marginTop: 40, fontSize: m ? 16 : 20, maxWidth: "65ch" }}>48 hours. One hall. 200 students, 6 partner companies, and a caffeine delivery schedule that would make a NOCSAE lab proud. You bring the skills — we bring the brief.</p>
         </div>
@@ -29,12 +29,13 @@ const HackathonPage = () => {
       {/* Timer */}
       <section style={{ paddingBottom: 80 }}>
         <div className="container">
-          <div style={{ border: "1px solid var(--border)", borderRadius: 16, padding: m ? "32px 20px" : "48px 32px", background: "var(--bg-card)", display: "flex", flexDirection: m ? "column" : "row", gap: m ? 16 : 48, alignItems: m ? "flex-start" : "center" }}>
-            <div className="mono-label" style={{ color: "var(--accent)", flexShrink: 0 }}>▸ Time left on clock</div>
-            <div style={{ display: "flex", gap: m ? 16 : 32, justifyContent: m ? "center" : "flex-end", alignItems: "baseline", fontFamily: "var(--mono)", fontSize: m ? 40 : "clamp(48px, 8vw, 120px)", fontWeight: 300, letterSpacing: "-0.04em", width: "100%" }}>
-              <div><span style={{ color: "var(--accent)" }}>{String(time.h).padStart(2,"0")}</span><span className="mono-label" style={{ marginLeft: 8, fontSize: m ? 10 : 14 }}>hrs</span></div>
-              <div><span>{String(time.m).padStart(2,"0")}</span><span className="mono-label" style={{ marginLeft: 8, fontSize: m ? 10 : 14 }}>min</span></div>
-              <div><span>{String(time.s).padStart(2,"0")}</span><span className="mono-label" style={{ marginLeft: 8, fontSize: m ? 10 : 14 }}>sec</span></div>
+          <div style={{ border: "1px solid rgba(255,255,255,0.1)", borderRadius: 22, padding: m ? "32px 20px" : "56px 40px", background: "var(--bg-dark)", color: "#fff", display: "flex", flexDirection: m ? "column" : "row", gap: m ? 16 : 48, alignItems: m ? "flex-start" : "center", position: "relative", overflow: "hidden", boxShadow: "0 40px 80px -30px rgba(0,0,44,0.5)" }}>
+            <div style={{ position: "absolute", top: "-50%", right: "-20%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.45) 0%, transparent 60%)", filter: "blur(80px)", pointerEvents: "none" }} />
+            <div style={{ fontFamily: "var(--body)", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700, color: "var(--accent)", flexShrink: 0, position: "relative" }}>Time left on the clock</div>
+            <div style={{ display: "flex", gap: m ? 16 : 32, justifyContent: m ? "center" : "flex-end", alignItems: "baseline", fontFamily: "var(--display)", fontSize: m ? 44 : "clamp(56px, 9vw, 130px)", fontWeight: 800, letterSpacing: "-0.04em", width: "100%", position: "relative" }}>
+              <div><span style={{ color: "var(--accent)" }}>{String(time.h).padStart(2,"0")}</span><span style={{ marginLeft: 8, fontSize: m ? 10 : 14, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>hrs</span></div>
+              <div><span>{String(time.m).padStart(2,"0")}</span><span style={{ marginLeft: 8, fontSize: m ? 10 : 14, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>min</span></div>
+              <div><span>{String(time.s).padStart(2,"0")}</span><span style={{ marginLeft: 8, fontSize: m ? 10 : 14, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>sec</span></div>
             </div>
           </div>
         </div>
@@ -86,14 +87,14 @@ const HackathonPage = () => {
               { k: "05", t: "DevTools", p: "Infomaniak" },
               { k: "06", t: "Wildcard", p: "START Lausanne" },
             ].map((t, i) => (
-              <div key={i} style={{ background: "var(--bg)", padding: m ? 24 : 32, minHeight: m ? "auto" : 200, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 16, cursor: "pointer", transition: "background 0.3s" }}
-                   onMouseEnter={e => e.currentTarget.style.background = "var(--bg-card)"}
-                   onMouseLeave={e => e.currentTarget.style.background = "var(--bg)"}>
+              <div key={i} style={{ background: "var(--bg-elev)", padding: m ? 24 : 36, minHeight: m ? "auto" : 200, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 16, cursor: "pointer", transition: "background 0.3s" }}
+                   onMouseEnter={e => e.currentTarget.style.background = "var(--accent-soft)"}
+                   onMouseLeave={e => e.currentTarget.style.background = "var(--bg-elev)"}>
                 <div>
-                  <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 16 }}>TRACK_{t.k}</div>
+                  <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 16 }}>Track {t.k}</div>
                   <h3 className="h-lg">{t.t}</h3>
                 </div>
-                <div className="mono-label">▸ Sponsored by {t.p}</div>
+                <div className="mono-label">Sponsored by {t.p}</div>
               </div>
             ))}
           </div>

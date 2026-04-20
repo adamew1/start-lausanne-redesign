@@ -58,7 +58,7 @@ const PartnersPage = () => {
         }} />
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(180deg, rgba(10,11,13,0.7) 0%, rgba(10,11,13,0.95) 100%)"
+          background: "linear-gradient(180deg, rgba(0,0,44,0.86) 0%, rgba(0,0,24,0.96) 100%)"
         }} />
         <div style={{
           position: "absolute", top: "30%", left: "10%",
@@ -67,12 +67,12 @@ const PartnersPage = () => {
           filter: "blur(80px)", pointerEvents: "none"
         }} />
 
-        <div className="container" style={{ position: "relative", zIndex: 2 }}>
-          <Eyebrow>For Partners · 2025/26</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 32, maxWidth: "14ch" }}>
-            Partner with <span className="accent">Switzerland's</span> next founders.
+        <div className="container" style={{ position: "relative", zIndex: 2, color: "#fff" }}>
+          <Eyebrow>For partners</Eyebrow>
+          <h1 className="h-display" style={{ marginTop: 32, maxWidth: "14ch", color: "#fff" }}>
+            Partner with <span className="accent">Switzerland's</span><br/><span className="outline-invert">next founders</span>.
           </h1>
-          <p className="lead" style={{ marginTop: 40, fontSize: 22, maxWidth: "60ch" }}>
+          <p className="lead" style={{ marginTop: 40, fontSize: 22, maxWidth: "60ch", color: "rgba(255,255,255,0.78)" }}>
             Join the Lemanic region's leading student entrepreneurship community
             and shape the future of Swiss innovation — alongside 500+ builders from
             UNIL, EPFL, HEC and IMD.
@@ -94,7 +94,7 @@ const PartnersPage = () => {
               border: "1px solid var(--border-strong)"
             }} />
             <div>
-              <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 12 }}>▸ Your point of contact</div>
+              <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 12 }}>Your point of contact</div>
               <h3 className="h-lg" style={{ marginBottom: 6 }}>Riad Mehmeti</h3>
               <div className="mono-label">President · Head of Partnerships</div>
               <div style={{ color: "var(--text-dim)", marginTop: 8, fontSize: 14 }}>president@startlausanne.ch · +41 76 381 59 58</div>
@@ -121,14 +121,14 @@ const PartnersPage = () => {
           <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 12, overflow: "hidden" }}>
             {partners.map((p, i) => (
               <div key={i} style={{
-                background: "var(--bg)", padding: "40px 20px", minHeight: 120,
+                background: "var(--bg-elev)", padding: "48px 20px", minHeight: 140,
                 display: "grid", placeItems: "center",
                 fontFamily: "var(--display)", fontSize: 16, fontWeight: 500,
                 color: "var(--text-dim)", textAlign: "center",
                 transition: "all 0.3s", cursor: "pointer"
               }}
-              onMouseEnter={e => { e.currentTarget.style.color = "var(--accent)"; e.currentTarget.style.background = "var(--bg-card)"; }}
-              onMouseLeave={e => { e.currentTarget.style.color = "var(--text-dim)"; e.currentTarget.style.background = "var(--bg)"; }}>
+              onMouseEnter={e => { e.currentTarget.style.color = "var(--accent)"; e.currentTarget.style.background = "var(--accent-soft)"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "var(--text-dim)"; e.currentTarget.style.background = "var(--bg-elev)"; }}>
                 {p}
               </div>
             ))}
@@ -156,17 +156,21 @@ const PartnersPage = () => {
           <div style={{ display: "flex", gap: 24, marginBottom: 48, flexWrap: "wrap" }}>
             {["UNIL", "EPFL", "HEC Lausanne", "IMD", "ECAL"].map(u => (
               <div key={u} style={{
-                padding: "14px 24px", border: "1px solid var(--border)", borderRadius: 999,
-                fontFamily: "var(--display)", fontSize: 16, fontWeight: 500,
-                color: "var(--text)", background: "var(--bg-card)"
-              }}>{u}</div>
+                padding: "14px 28px", border: "1.5px solid var(--text)", borderRadius: 999,
+                fontFamily: "var(--display)", fontSize: 15, fontWeight: 700,
+                color: "var(--text)", background: "transparent",
+                letterSpacing: "-0.01em",
+                transition: "all 0.2s", cursor: "default"
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "var(--text)"; e.currentTarget.style.color = "var(--bg)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--text)"; }}>{u}</div>
             ))}
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(2, 1fr)", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
             {whyPartner.map((w, i) => (
               <Reveal key={i} delay={i * 100}>
-                <div style={{ background: "var(--bg)", padding: m ? 24 : 40, minHeight: m ? "auto" : 240 }}>
+                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 40, minHeight: m ? "auto" : 240 }}>
                   <div style={{ fontSize: 32, color: "var(--accent)", marginBottom: 20 }}>{w.icon}</div>
                   <h3 className="h-md" style={{ marginBottom: 12 }}>{w.title}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.7 }}>{w.desc}</p>
@@ -237,18 +241,18 @@ const PartnersPage = () => {
                 <div style={{
                   position: "absolute", inset: 0,
                   background: galleryIdx === i
-                    ? "linear-gradient(180deg, transparent 50%, rgba(10,11,13,0.85) 100%)"
-                    : "linear-gradient(180deg, rgba(10,11,13,0.3), rgba(10,11,13,0.7))",
+                    ? "linear-gradient(180deg, transparent 50%, rgba(0,0,44,0.9) 100%)"
+                    : "linear-gradient(180deg, rgba(0,0,44,0.4), rgba(0,0,44,0.82))",
                   transition: "background 0.4s"
                 }} />
                 {/* Collapsed vertical label */}
                 {galleryIdx !== i && (
                   <div style={{
-                    position: m ? "relative" : "absolute", left: m ? 0 : "50%", top: m ? 0 : "50%",
+                    position: m ? "relative" : "absolute", left: m ? 16 : "50%", top: m ? 20 : "50%",
                     transform: m ? "none" : "translate(-50%, -50%) rotate(-90deg)",
                     whiteSpace: "nowrap",
-                    fontFamily: "var(--mono)", fontSize: 10, color: "var(--text-dim)",
-                    textTransform: "uppercase", letterSpacing: "0.15em"
+                    fontFamily: "var(--body)", fontSize: 10, color: "rgba(255,255,255,0.82)", fontWeight: 600,
+                    textTransform: "uppercase", letterSpacing: "0.16em"
                   }}>{String(i + 1).padStart(2, "0")} · {img.label}</div>
                 )}
                 {/* Expanded label */}
@@ -288,7 +292,7 @@ const PartnersPage = () => {
         <div className="container">
           <SectionLabel num="05" label="Have questions?" />
           <div className="split" style={{ alignItems: "start" }}>
-            <div style={{ position: "sticky", top: 100 }}>
+            <div style={{ position: m ? "static" : "sticky", top: 100 }}>
               <h2 className="h-xl" style={{ marginBottom: 32 }}>
                 Frequently<br/>asked<br/><span className="accent">questions<span style={{color:"var(--text)"}}>.</span></span>
               </h2>

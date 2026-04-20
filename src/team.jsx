@@ -87,7 +87,7 @@ const TeamPage = () => {
     <>
       <section style={{ paddingTop: 160, paddingBottom: 80 }} className="grid-bg">
         <div className="container">
-          <Eyebrow>The Dream Team · Cohort 2025/26</Eyebrow>
+          <Eyebrow>The team</Eyebrow>
           <h1 className="h-display" style={{ marginTop: 32 }}>
             Diverse skills<span className="accent">.</span><br/>
             <span style={{ fontStyle: "italic", fontWeight: 300 }}>United</span><br/>
@@ -112,10 +112,11 @@ const TeamPage = () => {
                 <div key={i} onClick={() => setActiveBoard(i)}
                      style={{
                        display: "grid", gridTemplateColumns: m ? "60px 1fr" : "80px 1fr auto", gap: m ? 12 : 20, alignItems: "center",
-                       padding: 16, borderRadius: 12, cursor: "pointer",
-                       background: activeBoard === i ? "var(--bg-card)" : "transparent",
-                       border: "1px solid " + (activeBoard === i ? "var(--border-strong)" : "var(--border)"),
-                       transition: "all 0.2s"
+                       padding: 16, borderRadius: 14, cursor: "pointer",
+                       background: activeBoard === i ? "var(--accent-soft)" : "var(--bg-elev)",
+                       border: "1px solid " + (activeBoard === i ? "var(--accent)" : "var(--border)"),
+                       boxShadow: activeBoard === i ? "0 4px 20px -8px rgba(59,130,246,0.4)" : "none",
+                       transition: "all 0.25s"
                      }}>
                   <div style={{
                     width: m ? 60 : 80, height: m ? 60 : 80, borderRadius: 8, backgroundImage: `url(${bm.img})`,
@@ -134,8 +135,8 @@ const TeamPage = () => {
               <div style={{ position: "relative", borderRadius: 16, overflow: "hidden" }}>
                 <Img src={board[activeBoard].img} ratio="4/5" />
               </div>
-              <div style={{ marginTop: 24, padding: 24, border: "1px solid var(--border)", borderRadius: 12, background: "var(--bg-card)" }}>
-                <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 12 }}>▸ {board[activeBoard].role}</div>
+              <div style={{ marginTop: 24, padding: 28, border: "1px solid var(--border)", borderRadius: 16, background: "var(--bg-elev)", boxShadow: "var(--shadow-sm)" }}>
+                <div className="mono-label" style={{ color: "var(--accent)", marginBottom: 12 }}>{board[activeBoard].role}</div>
                 <p style={{ fontSize: 20, lineHeight: 1.5, fontFamily: "var(--display)", fontWeight: 400, margin: 0 }}>
                   "{board[activeBoard].quote}"
                 </p>
@@ -154,10 +155,7 @@ const TeamPage = () => {
         <section key={t.code} className="section" style={{ borderTop: "1px solid var(--border)", paddingTop: 80, paddingBottom: 80 }}>
           <div className="container">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 48, flexWrap: "wrap", gap: 16 }}>
-              <div>
-                <span className="mono-label" style={{ color: "var(--accent)" }}>TEAM_{t.code}</span>
-                <h2 className="h-xl" style={{ marginTop: 12 }}>{t.name}</h2>
-              </div>
+              <h2 className="h-xl">{t.name}</h2>
               <span className="mono-label">{t.members.length} member{t.members.length > 1 ? "s" : ""}</span>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(220px, 1fr))", gap: m ? 12 : 24 }}>
@@ -174,7 +172,7 @@ const TeamPage = () => {
                     onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.borderColor = "var(--border)"; }}>
                       <div style={{
                         position: "absolute", inset: 0,
-                        background: "linear-gradient(180deg, transparent 50%, rgba(10,11,13,0.85) 100%)"
+                        background: "linear-gradient(180deg, transparent 45%, rgba(0,0,44,0.94) 100%)"
                       }} />
                       <div style={{
                         position: "absolute", left: 16, right: 16, bottom: 16,
@@ -185,15 +183,16 @@ const TeamPage = () => {
                         </div>
                         {m.li && m.li !== "#" ? (
                           <a href={m.li} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{
-                            width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center",
-                            background: "rgba(61,139,255,0.15)", border: "1px solid var(--accent)",
-                            color: "var(--accent)", fontSize: 12, flexShrink: 0, backdropFilter: "blur(10px)"
+                            width: 34, height: 34, borderRadius: "50%", display: "grid", placeItems: "center",
+                            background: "var(--accent)", border: "1px solid var(--accent)",
+                            color: "#fff", fontSize: 12, fontWeight: 700, flexShrink: 0,
+                            backdropFilter: "blur(10px)"
                           }}>in</a>
                         ) : (
                           <span style={{
-                            width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center",
-                            background: "rgba(255,255,255,0.05)", border: "1px solid var(--border)",
-                            color: "var(--text-mute)", fontSize: 12, flexShrink: 0, opacity: 0.4
+                            width: 34, height: 34, borderRadius: "50%", display: "grid", placeItems: "center",
+                            background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)",
+                            color: "rgba(255,255,255,0.5)", fontSize: 12, flexShrink: 0, backdropFilter: "blur(10px)"
                           }}>in</span>
                         )}
                       </div>
