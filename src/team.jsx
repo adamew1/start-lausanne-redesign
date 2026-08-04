@@ -5,78 +5,78 @@ const TeamPage = () => {
 
   const board = [
     { name: "Riad Mehmeti", role: "President", email: "president@startlausanne.ch", linkedin: "https://www.linkedin.com/in/riad-mehmeti-7170b0330/", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93981450fcfb0784502b_K75A8205_centered.jpg", quote: "Hello there! My name is Riad Mehmeti and I'm the President of START Lausanne 2025-2026!" },
-    { name: "Marion Mourot", role: "Vice-President", email: "marion.mourot@startlausanne.ch", linkedin: "https://www.linkedin.com/in/marion-mourot-1a3070336/", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93bffa748a37bb0ff510_K75A7927_centered.jpg", quote: "Hey! I'm Marion Mourot and I'm the Vice-President." },
-    { name: "Leïla Benjelloun", role: "Treasurer", email: "leila.benjelloun@startlausanne.ch", linkedin: "https://www.linkedin.com/in/le%C3%AFla-benjelloun-807a53156/", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93d91d461fd7402fdbbe_K75A8008_centered.jpg", quote: "And I'm Leïla, the treasurer :) Let us introduce you to the rest of the team!" },
+    { name: "Marion Mourot", role: "Vice-President", email: "marion.mourot@startlausanne.ch", linkedin: "https://www.linkedin.com/in/marion-mourot-1a3070336/", img: "src/images/698c93bffa748a37bb0ff510_K75A7927_centered.jpg", quote: "Hey! I'm Marion Mourot and I'm the Vice-President." },
+    { name: "Leïla Benjelloun", role: "Treasurer", email: "leila.benjelloun@startlausanne.ch", linkedin: "https://www.linkedin.com/in/le%C3%AFla-benjelloun-807a53156/", img: "src/images/698c93d91d461fd7402fdbbe_K75A8008_centered.jpg", quote: "And I'm Leïla, the treasurer :) Let us introduce you to the rest of the team!" },
   ];
 
   const teams = [
     {
       name: "Contest Team", code: "01",
       members: [
-        { n: "Adelet Tesfay", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/673a2158cbb5b04bc740219c_2024_Start%20%2813%29.jpg", li: "https://ch.linkedin.com/in/adelet-tesfay-481762252" },
-        { n: "Imane Lahrichi", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c949f680371da71dab205_K75A7892_centered.jpg", li: "https://www.linkedin.com/in/imane-lahrichi/" },
-        { n: "Siham Mikou", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dc030b5718afbd9423667_1729269042790.jpg", li: "https://www.linkedin.com/in/siham-mikou-94b833277/" },
-        { n: "Romain Darioli", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9c4181cba9dd8dfb5d53_K75A8030_centered.jpg", li: "https://www.linkedin.com/in/romain-darioli/" },
-        { n: "Seyoung Kim", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c95958af72ad7aab780d7_K75A7850_centered.jpg", li: "https://www.linkedin.com/in/seyoung-kim-22a68a172/" },
-        { n: "Mohamed Houssaini", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c95b2d00bb4ebcd03ccba_4-K75A7795_topcrop.jpg", li: "https://www.linkedin.com/in/mohamed-iraqi-houssaini-584963388/" },
+        { n: "Adelet Tesfay", img: "src/images/adelet-tesfay.jpg", li: "https://ch.linkedin.com/in/adelet-tesfay-481762252" },
+        { n: "Imane Lahrichi", img: "src/images/698c949f680371da71dab205_K75A7892_centered.jpg", li: "https://www.linkedin.com/in/imane-lahrichi/" },
+        { n: "Siham Mikou", img: "src/images/siham-mikou.jpg", li: "https://www.linkedin.com/in/siham-mikou-94b833277/" },
+        { n: "Romain Darioli", img: "src/images/698c9c4181cba9dd8dfb5d53_K75A8030_centered.jpg", li: "https://www.linkedin.com/in/romain-darioli/" },
+        { n: "Seyoung Kim", img: "src/images/698c95958af72ad7aab780d7_K75A7850_centered.jpg", li: "https://www.linkedin.com/in/seyoung-kim-22a68a172/" },
+        { n: "Mohamed Houssaini", img: "src/images/698c95b2d00bb4ebcd03ccba_4-K75A7795_topcrop.jpg", li: "https://www.linkedin.com/in/mohamed-iraqi-houssaini-584963388/" },
       ]
     },
     {
       name: "Events Team", code: "02",
       members: [
-        { n: "Esteban Voituret", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dc001e96f74b50758cfeb_1753907384414.jpg", li: "https://www.linkedin.com/in/esteban-voituret-0874b1251/" },
-        { n: "Livia Camplese", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9f2f130c2878d38e976d_K75A7991_centered.jpg", li: "https://www.linkedin.com/in/livia-c-454282335/" },
+        { n: "Esteban Voituret", img: "src/images/esteban-voituret.jpg", li: "https://www.linkedin.com/in/esteban-voituret-0874b1251/" },
+        { n: "Livia Camplese", img: "src/images/698c9f2f130c2878d38e976d_K75A7991_centered.jpg", li: "https://www.linkedin.com/in/livia-c-454282335/" },
         { n: "Yassine Becha", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/673a21598783fc08bef12204_2024_Start%20%2823%29.jpg", li: "https://www.linkedin.com/in/yassine-becha-2095a3248/" },
-        { n: "Dhia Eddine Naffati", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c96dd4b1384bc81cf1e6f_K75A7817_centered.jpg", li: "https://www.linkedin.com/in/dhia-naffati-01b95b336/" },
-        { n: "Henrik Gruber", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9eea964638801cf6dbd0_K75A8116_topcrop.jpg", li: "https://www.linkedin.com/in/gruber-henrik/" },
-        { n: "Roman Guillemin", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c96efe0386c8d458aff7d_K75A7874_topcrop.jpg", li: "https://www.linkedin.com/in/roman-guillemin-baa844351/" },
-        { n: "Elisa Schroth", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9f0f9d917d61c1c42ae2_K75A8099_centered.jpg", li: "https://www.linkedin.com/in/elisa-schroth-7b15b737a/" },
-        { n: "Julia Kannengieser", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dbf9ea56b486d220fe987_1733221537269.jpg", li: "https://www.linkedin.com/in/julia-kannengieser-b8382b2b9/" },
+        { n: "Dhia Eddine Naffati", img: "src/images/698c96dd4b1384bc81cf1e6f_K75A7817_centered.jpg", li: "https://www.linkedin.com/in/dhia-naffati-01b95b336/" },
+        { n: "Henrik Gruber", img: "src/images/698c9eea964638801cf6dbd0_K75A8116_topcrop.jpg", li: "https://www.linkedin.com/in/gruber-henrik/" },
+        { n: "Roman Guillemin", img: "src/images/698c96efe0386c8d458aff7d_K75A7874_topcrop.jpg", li: "https://www.linkedin.com/in/roman-guillemin-baa844351/" },
+        { n: "Elisa Schroth", img: "src/images/698c9f0f9d917d61c1c42ae2_K75A8099_centered.jpg", li: "https://www.linkedin.com/in/elisa-schroth-7b15b737a/" },
+        { n: "Julia Kannengieser", img: "src/images/julia-kannengieser.jpg", li: "https://www.linkedin.com/in/julia-kannengieser-b8382b2b9/" },
       ]
     },
     {
       name: "Coordination Team", code: "03",
       members: [
-        { n: "Rania Hatrouhou", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c973eac558976b3f43ad3_K75A8046_centered.jpg", li: "https://www.linkedin.com/in/rania-hatrouhou-389a07238/" },
-        { n: "Cedric Mercado", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c971d2b78df61f2b31ccb_K75A8143_centered.jpg", li: "https://www.linkedin.com/in/cedric-mercado-308879217/" },
-        { n: "Givar Maley", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c919189fbd9b11ec6e137_3-K75A7787.jpg", li: "https://www.linkedin.com/in/givar-maley-542794331/" },
-        { n: "Yasmine Jouini", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c8fbcfa3181dd37b1def3_K75A7967.jpg", li: "https://www.linkedin.com/in/yasmine-jouini-7a803828a/" },
+        { n: "Rania Hatrouhou", img: "src/images/698c973eac558976b3f43ad3_K75A8046_centered.jpg", li: "https://www.linkedin.com/in/rania-hatrouhou-389a07238/" },
+        { n: "Cedric Mercado", img: "src/images/698c971d2b78df61f2b31ccb_K75A8143_centered.jpg", li: "https://www.linkedin.com/in/cedric-mercado-308879217/" },
+        { n: "Givar Maley", img: "src/images/698c919189fbd9b11ec6e137_3-K75A7787.jpg", li: "https://www.linkedin.com/in/givar-maley-542794331/" },
+        { n: "Yasmine Jouini", img: "src/images/698c8fbcfa3181dd37b1def3_K75A7967.jpg", li: "https://www.linkedin.com/in/yasmine-jouini-7a803828a/" },
       ]
     },
     {
       name: "Marketing Team", code: "04",
       members: [
-        { n: "Mayuri Tribukait", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c97706fcd945b5168f3c4_K75A8074_centered.jpg", li: "https://www.linkedin.com/in/mayuri-tribukait-b5a103325/" },
-        { n: "Daniele Parini", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c97a26792a508dfb974ef_K75A8131_centered.jpg", li: "https://www.linkedin.com/in/giulia-flocchini" },
-        { n: "Lylia Fadouach", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dbf6b70a043105c4bb91f_1742500559305.jpg", li: "https://www.linkedin.com/in/lylia-fadouach-87776b331/" },
-        { n: "Enya Schmid", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9ec1e6edd2b6a0054722_K75A7878_topcrop.jpg", li: "https://www.linkedin.com/in/enya-schmid-41a89b388/" },
+        { n: "Mayuri Tribukait", img: "src/images/698c97706fcd945b5168f3c4_K75A8074_centered.jpg", li: "https://www.linkedin.com/in/mayuri-tribukait-b5a103325/" },
+        { n: "Daniele Parini", img: "src/images/698c97a26792a508dfb974ef_K75A8131_centered.jpg", li: "https://www.linkedin.com/in/giulia-flocchini" },
+        { n: "Lylia Fadouach", img: "src/images/lylia-fadouach.jpg", li: "https://www.linkedin.com/in/lylia-fadouach-87776b331/" },
+        { n: "Enya Schmid", img: "src/images/698c9ec1e6edd2b6a0054722_K75A7878_topcrop.jpg", li: "https://www.linkedin.com/in/enya-schmid-41a89b388/" },
       ]
     },
     {
       name: "Partnership Team", code: "05",
       members: [
-        { n: "Edgard Lacava", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dbf0fdc4be8c780ec0c3c_1761774182283.jpg", li: "https://www.linkedin.com/in/edgar-lacava/" },
+        { n: "Edgard Lacava", img: "src/images/edgard-lacava.jpg", li: "https://www.linkedin.com/in/edgar-lacava/" },
         { n: "Gabriele Azzini", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/673a2159e68327d58bd48f01_2024_Start%20%2874%29.jpg", li: "https://www.linkedin.com/in/gabriele-azzini/" },
-        { n: "Leïla Benjelloun", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93d91d461fd7402fdbbe_K75A8008_centered.jpg", li: "https://www.linkedin.com/in/le%C3%AFla-benjelloun-807a53156/" },
-        { n: "Kenza Taghrest", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9e924beb9de881ea9658_K75A8087_centered.jpg", li: "https://www.linkedin.com/in/kenza-taghrest-826223332/" },
-        { n: "Francesco Maiolatesi", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/690dbeef0c1cb28b0f9205d3_1761769124830.jpg", li: "https://www.linkedin.com/in/francesco-maiolatesi-6976ba367/" },
-        { n: "Ilias Jari", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c97d667794a258a1a2b6c_5-K75A7813_topcrop.jpg", li: "https://www.linkedin.com/in/mohamed-ilias-jari/" },
+        { n: "Leïla Benjelloun", img: "src/images/698c93d91d461fd7402fdbbe_K75A8008_centered.jpg", li: "https://www.linkedin.com/in/le%C3%AFla-benjelloun-807a53156/" },
+        { n: "Kenza Taghrest", img: "src/images/698c9e924beb9de881ea9658_K75A8087_centered.jpg", li: "https://www.linkedin.com/in/kenza-taghrest-826223332/" },
+        { n: "Francesco Maiolatesi", img: "src/images/francesco-maiolatesi.jpg", li: "https://www.linkedin.com/in/francesco-maiolatesi-6976ba367/" },
+        { n: "Ilias Jari", img: "src/images/698c97d667794a258a1a2b6c_5-K75A7813_topcrop.jpg", li: "https://www.linkedin.com/in/mohamed-ilias-jari/" },
       ]
     },
     {
       name: "IT Team", code: "06",
       members: [
-        { n: "Hassan Baddour", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c98095ed710c98ac67c28_K75A8152_topcrop.jpg", li: "https://www.linkedin.com/in/hassan-baddour-1b4992231/" },
-        { n: "Rim Abkari", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c981d20f8f525a4d08705_K75A7972_centered.jpg", li: "#" },
-        { n: "Ayman Bouzaid", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9834d943e112c8c450de_K75A8216_centered.jpg", li: "#" },
+        { n: "Hassan Baddour", img: "src/images/698c98095ed710c98ac67c28_K75A8152_topcrop.jpg", li: "https://www.linkedin.com/in/hassan-baddour-1b4992231/" },
+        { n: "Rim Abkari", img: "src/images/698c981d20f8f525a4d08705_K75A7972_centered.jpg", li: "#" },
+        { n: "Ayman Bouzaid", img: "src/images/ayman-bouzaid.png", li: "#" },
       ]
     },
     {
       name: "Intern Team", code: "07",
       members: [
-        { n: "Marion Mourot", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93bffa748a37bb0ff510_K75A7927_centered.jpg", li: "https://www.linkedin.com/in/marion-mourot-1a3070336/" },
-        { n: "Sophia Draper", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c9e636c48c06a834e0eef_K75A7836_centered.jpg", li: "https://www.linkedin.com/in/sophia-draper-983a8b327/" },
-        { n: "Mattia Lagennusa", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c98514d9f897ef22e42b7_K75A7907_centered.jpg", li: "https://www.linkedin.com/in/mattia-la-gennusa-162704372/" },
+        { n: "Marion Mourot", img: "src/images/698c93bffa748a37bb0ff510_K75A7927_centered.jpg", li: "https://www.linkedin.com/in/marion-mourot-1a3070336/" },
+        { n: "Sophia Draper", img: "src/images/698c9e636c48c06a834e0eef_K75A7836_centered.jpg", li: "https://www.linkedin.com/in/sophia-draper-983a8b327/" },
+        { n: "Mattia Lagennusa", img: "src/images/698c98514d9f897ef22e42b7_K75A7907_centered.jpg", li: "https://www.linkedin.com/in/mattia-la-gennusa-162704372/" },
       ]
     },
   ];
