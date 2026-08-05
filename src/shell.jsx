@@ -60,9 +60,9 @@ function Footer({ setRoute }) {
         <div className="footer-grid">
           <div className="footer-col">
             <h4>Contact</h4>
-            <div style={{ color: "#fff", fontSize: 15, marginBottom: 8, fontWeight: 600 }}>Riad Mehmeti</div>
-            <a href="mailto:president@startlausanne.ch">president@startlausanne.ch</a>
-            <a href="tel:+41763815958">+41 76 381 59 58</a>
+            <div style={{ color: "#fff", fontSize: 15, marginBottom: 8, fontWeight: 600 }}>Henrik Gruber</div>
+            <a href="mailto:henrik.gruber@startlausanne.ch">henrik.gruber@startlausanne.ch</a>
+            <a href="tel:+436507158870">+43 650 7158870</a>
             <a href="mailto:info@startlausanne.ch">info@startlausanne.ch</a>
           </div>
           <div className="footer-col">

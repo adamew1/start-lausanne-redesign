@@ -46,9 +46,9 @@ const HomePage = () => {
   const cityItems = cities.map((c,i) => makeCity(c, i, "a"));
 
   const testimonials = [
-    { name: "Marion Mourot", role: "Vice-President", long: "Joining START meant building a community I now can't imagine my student life without — it's ambitious, supportive and ridiculously fun.", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93bffa748a37bb0ff510_K75A7927_centered.jpg" },
-    { name: "Riad Mehmeti", role: "President", long: "We're here to turn ideas into action. If you've ever wanted to build something real while still a student — this is your place.", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93981450fcfb0784502b_K75A8205_centered.jpg" },
-    { name: "Leïla Benjelloun", role: "Treasurer", long: "Behind every great event is a spreadsheet someone loves. I love the spreadsheets. I love this team more.", img: "https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/698c93d91d461fd7402fdbbe_K75A8008_centered.jpg" },
+    { name: "Henrik Gruber", role: "President", long: "", img: "src/images/698c9eea964638801cf6dbd0_K75A8116_topcrop.jpg" },
+    { name: "Mattia La Gennusa", role: "Vice-President", long: "", img: "src/images/698c98514d9f897ef22e42b7_K75A7907_centered.jpg" },
+    { name: "Cedric Mercado", role: "Treasurer", long: "", img: "src/images/698c971d2b78df61f2b31ccb_K75A8143_centered.jpg" },
   ];
 
   return (
@@ -267,7 +267,7 @@ const HomePage = () => {
                 <div className="card" style={{ padding: 0, overflow: "hidden" }}>
                   <Img src={t.img} ratio={m ? "16/9" : "4/5"} />
                   <div style={{ padding: m ? 22 : 28 }}>
-                    <div style={{ fontSize: 16, lineHeight: 1.55, marginBottom: 24, color: "var(--text)", fontWeight: 500 }}>"{t.long}"</div>
+                    {t.long && <div style={{ fontSize: 16, lineHeight: 1.55, marginBottom: 24, color: "var(--text)", fontWeight: 500 }}>"{t.long}"</div>}
                     <div style={{ height: 1, background: "var(--border)", marginBottom: 16 }} />
                     <div style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: 16, color: "var(--text)" }}>{t.name}</div>
                     <div className="mono-label" style={{ marginTop: 4, color: "var(--accent)" }}>{t.role}</div>
