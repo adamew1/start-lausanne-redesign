@@ -1,81 +1,115 @@
-// About page
+// About page — mission, values, network, departments, team
 const AboutPage = () => {
   const m = useIsMobile();
-  const depts = [
-    { name: "Events", desc: "Plan, run and deliver 40+ events a year — from intimate founder fireside chats to multi-day competitions.", skills: ["Production", "Logistics", "Community"] },
-    { name: "Partners", desc: "Acquire, manage and grow relationships with the sponsors and companies that fuel our mission.", skills: ["B2B Sales", "Negotiation", "CRM"] },
-    { name: "Marketing", desc: "Own the brand. Grow the reach. Design the campaigns that make START unmissable.", skills: ["Content", "Social", "Brand"] },
-    { name: "Tech", desc: "Build the automations, site, and internal tools that let the rest of the team move at startup speed.", skills: ["Web", "Automations", "Data"] },
-    { name: "Venture", desc: "Source, scout and support student-founded ventures through our pipeline of programs and competitions.", skills: ["Scouting", "Due Diligence", "Mentorship"] },
-    { name: "People", desc: "Recruit, onboard and grow the community that makes START more than an association.", skills: ["Recruiting", "Culture", "Ops"] },
+
+  const values = [
+    { icon: "people", title: "Community First", d: "We believe in the power of bringing ambitious people together to create meaningful connections." },
+    { icon: "globe", title: "Global Mindset", d: "Part of a network spanning 22 cities and 17 countries, we think and act globally." },
+    { icon: "briefcase", title: "Action-Oriented", d: "We don't just talk about entrepreneurship — we build, create, and make things happen." },
+    { icon: "heart", title: "Inclusive", d: "We welcome every student regardless of background. Diversity drives innovation." },
   ];
 
-  const timeline = [
-    { year: "2019", title: "Founded at UNIL", desc: "A small group of HEC students decides Lausanne deserves its own student-run entrepreneurship hub." },
-    { year: "2020", title: "First Contest", desc: "We run our inaugural startup competition — 12 teams, 1 winner, 0 sleep." },
-    { year: "2022", title: "START Hack launches", desc: "The hackathon goes live and becomes one of Switzerland's largest student build sprints." },
-    { year: "2023", title: "RtSS begins", desc: "Road to the Startup Summit kicks off — a cross-Europe startup road trip for our members." },
-    { year: "2024", title: "Global network", desc: "START Lausanne joins a federation of 25 chapters across 11 countries." },
-    { year: "2026", title: "Where you come in", desc: "The next cohort. Maybe you're reading this because you're about to build it with us." },
+  const depts = [
+    { icon: "🏆", name: "Contest", d: "Running the START Contest end to end — from applications to the grand finale jury night." },
+    { icon: "🧭", name: "Coordination", d: "Keeping the association's projects, calendar and internal operations running smoothly." },
+    { icon: "🎪", name: "Event", d: "Planning and executing every event that brings our community together, from workshops to the hackathon." },
+    { icon: "📊", name: "Finance", d: "Managing the association's budget, resources, and financial sustainability." },
+    { icon: "📣", name: "Marketing", d: "Owning the brand, growing the reach, and designing the campaigns that make START unmissable." },
+    { icon: "💻", name: "IT", d: "Building the website, automations and internal tools that let the rest of the team move fast." },
+    { icon: "🌱", name: "Intern", d: "Supporting every department while getting a first hands-on taste of student entrepreneurship." },
   ];
+
+  const board = [
+    { name: "Henrik Gruber", role: "President" },
+    { name: "Mattia La Gennusa", role: "Vice-President" },
+    { name: "Cedric Mercado", role: "Treasurer" },
+  ];
+
+  const teams = [
+    { name: "Contest Team", members: ["Yasmine Jouini", "Seyoung Kim"] },
+    { name: "Coordination Team", members: ["Tariq Azzouz", "Rayhana Bentahir"] },
+    { name: "Event Team", members: ["Athish Sinnandy", "Omman Hashemi", "Dhia Eddine Naffati", "Ghalia Bennani"] },
+    { name: "Finance Team", members: ["Aurelia Marchese", "Lena Sieber", "Pablo Suarez", "Stephan Ferrieri"] },
+    { name: "Marketing Team", members: ["Elena Bachos", "Amélie Ruggeri", "Lina Boubeker", "Ludivine Berger"] },
+    { name: "IT Team", members: ["Rim Abkari", "Adam Lahchimi", "Ayman Bouzaid"] },
+    { name: "Intern Team", members: ["Arianna Nepomuceno"] },
+  ];
+
+  const allMembers = [
+    ...board.map(b => ({ n: b.name, role: b.role })),
+    ...teams.flatMap(t => t.members.map(n => ({ n, role: t.name }))),
+  ];
+
+  const networkCities = ["Lausanne","St. Gallen","Nuremberg","Helsinki","Stuttgart","Vaduz","Munich","Berlin","Barcelona","Lisbon","Hamburg","Maastricht","Paris","Vienna","Mexico City","São Paulo","Lima","Quito","Bogotá","London","Milan","Warsaw"];
 
   return (
     <>
-      <section style={{ paddingTop: 160, paddingBottom: 80, position: "relative" }} className="grid-bg">
-        <div className="container">
-          <Eyebrow>About</Eyebrow>
-          <h1 className="h-display" style={{ marginTop: 32, maxWidth: "14ch" }}>We're a <span className="accent">student-run</span> launchpad.</h1>
-          <p className="lead" style={{ marginTop: 40, fontSize: m ? 18 : 22 }}>Not a club. Not a think tank. START Lausanne is a working association of students who plan real events, sign real partners, and build real things — so the next generation of founders has somewhere to begin.</p>
+      {/* Hero */}
+      <section style={{ position: "relative", minHeight: m ? "70vh" : "88vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(src/images/about.jpeg)", backgroundSize: "cover", backgroundPosition: "center" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(8,8,10,0.35) 0%, rgba(8,8,10,0.7) 55%, rgba(8,8,10,0.96) 100%)" }} />
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: m ? 56 : 96 }}>
+          <h1 style={{ fontFamily: "var(--display)", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.03em", fontSize: m ? 54 : "clamp(70px, 10vw, 140px)", lineHeight: 0.95, color: "#fff", margin: 0 }}>About Us</h1>
+          <p className="lead" style={{ marginTop: 28, maxWidth: "60ch", color: "rgba(255,255,255,0.82)" }}>
+            Connecting the next generation of entrepreneurs in Lausanne and beyond.
+          </p>
         </div>
       </section>
 
-      {/* Principles */}
+      {/* Mission */}
+      <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1.1fr 0.9fr", gap: 64, alignItems: "center" }}>
+          <Reveal>
+            <Eyebrow>Our Mission</Eyebrow>
+            <h2 className="h-lg" style={{ marginTop: 24, marginBottom: 28, textTransform: "uppercase" }}>Empowering Students to Build the <span className="text-gradient">Future</span></h2>
+            <p className="lead" style={{ marginBottom: 20 }}>
+              We empower students to take the next step in their entrepreneurial journey so they can build innovation and startups that shape tomorrow. Through events, workshops, and a vibrant community, we provide the resources, connections, and support needed to turn ambitious ideas into concrete, lasting projects.
+            </p>
+            <p className="lead" style={{ marginBottom: 0 }}>
+              As part of the global START Network spanning 22 cities across 17 countries, we connect Lausanne's brightest minds with a worldwide community of entrepreneurs, investors, and industry leaders.
+            </p>
+          </Reveal>
+          <Reveal delay={150}>
+            <Img src="src/images/start_generale.jpeg" ratio="3/2" label="START Lausanne" style={{ backgroundSize: "150%", backgroundPosition: "center 32%" }} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Values */}
       <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
         <div className="container">
-          <SectionLabel num="01" label="Operating principles" />
-          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(3, 1fr)", gap: 32 }}>
-            {[
-              { t: "Do the thing.", d: "We value shipping over strategizing. Events happen because people book the rooms. Startups exist because someone writes the first line." },
-              { t: "Room for non-experts.", d: "Half of what you know you learned last month. Our best members come from law, physics, design — not just business." },
-              { t: "Community compounds.", d: "The people you build with now will be your cofounders, investors and first hires. We take that seriously." },
-            ].map((p, i) => (
-              <Reveal key={i} delay={i * 120}>
-                <div style={{ borderTop: "1px solid var(--accent)", paddingTop: 24 }}>
-                  <h3 className="h-lg" style={{ marginBottom: 16 }}>{p.t}</h3>
-                  <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.7 }}>{p.d}</p>
+          <div style={{ textAlign: "center", marginBottom: m ? 48 : 72 }}>
+            <h2 className="h-lg" style={{ textTransform: "uppercase" }}>Our Values</h2>
+            <p className="lead" style={{ margin: "20px auto 0" }}>The principles that guide everything we do.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(4, 1fr)", gap: 24 }}>
+            {values.map((v, i) => (
+              <Reveal key={v.title} delay={i * 100}>
+                <div className="card-glass" style={{ borderRadius: "var(--rad-lg)", padding: 32, textAlign: "center", height: "100%" }}>
+                  <div style={{ width: 64, height: 64, margin: "0 auto 20px", borderRadius: 16, background: "var(--accent-soft)", color: "var(--accent)", display: "grid", placeItems: "center" }}><DetailIcon type={v.icon} size={28} /></div>
+                  <h3 style={{ fontFamily: "var(--display)", fontWeight: 800, fontSize: 15, textTransform: "uppercase", letterSpacing: "0.01em", marginBottom: 12 }}>{v.title}</h3>
+                  <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.7 }}>{v.d}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section style={{ padding: "0 0 120px" }}>
-        <div className="container">
-          <Img src="https://cdn.prod.website-files.com/639832a06215ce13af0dfe47/69d2d19ff49caa7d35d283f0_DJI_0034.jpg" ratio={m ? "16/9" : "21/9"} label="START Contest · UNIL" />
         </div>
       </section>
 
       {/* Departments */}
       <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
         <div className="container">
-          <SectionLabel num="02" label="Departments" />
-          <div className="split" style={{ marginBottom: 64, alignItems: "end" }}>
-            <h2 className="h-xl">Six teams<span className="accent">.</span><br/><span style={{ opacity: 0.4 }}>One association.</span></h2>
-            {!m && <p className="lead">When you join, you'll pick a department. That's where you'll do real work with real ownership — and where you'll practice the muscle you want to build.</p>}
+          <div style={{ textAlign: "center", marginBottom: m ? 48 : 72 }}>
+            <h2 className="h-lg" style={{ textTransform: "uppercase" }}>Our Departments</h2>
+            <p className="lead" style={{ margin: "20px auto 0" }}>Seven teams working together to make START Lausanne exceptional.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(2, 1fr)", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
             {depts.map((d, i) => (
-              <Reveal key={d.name} delay={i * 80}>
-                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 36, minHeight: m ? "auto" : 280, cursor: "pointer", transition: "background 0.3s" }}
-                     onMouseEnter={e => e.currentTarget.style.background = "var(--accent-soft)"}
-                     onMouseLeave={e => e.currentTarget.style.background = "var(--bg-elev)"}>
-                  <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: m ? 16 : 32 }}>
-                    <span className="mono-label" style={{ color: "var(--accent)" }}>⟶</span>
-                  </div>
-                  <h3 className="h-lg" style={{ marginBottom: 12 }}>{d.name}</h3>
-                  <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.6, marginBottom: 20 }}>{d.desc}</p>
-                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{d.skills.map(s => <Tag key={s}>{s}</Tag>)}</div>
+              <Reveal key={d.name} delay={i * 60} style={{ flex: m ? "1 1 100%" : "1 1 260px" }}>
+                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 32, minHeight: m ? "auto" : 220, height: "100%" }}>
+                  <div style={{ fontSize: 28, marginBottom: 16 }}>{d.icon}</div>
+                  <h3 className="h-md" style={{ marginBottom: 10, textTransform: "uppercase", fontSize: 18 }}>{d.name}</h3>
+                  <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.6 }}>{d.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -83,24 +117,19 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Meet the team */}
       <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
         <div className="container">
-          <SectionLabel num="03" label="Timeline" />
-          <h2 className="h-xl" style={{ marginBottom: m ? 48 : 80 }}>From 2019 <span className="accent">→</span> today.</h2>
-          <div style={{ position: "relative" }}>
-            {!m && <div style={{ position: "absolute", left: 120, top: 0, bottom: 0, width: 1, background: "var(--border)" }} />}
-            {m && <div style={{ position: "absolute", left: 4, top: 0, bottom: 0, width: 1, background: "var(--border)" }} />}
-            {timeline.map((t, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "120px 1fr", gap: m ? 8 : 48, paddingBottom: m ? 32 : 56, paddingLeft: m ? 24 : 0, position: "relative" }}>
-                  <div className="h-md" style={{ color: "var(--accent)", fontFamily: "var(--mono)", fontWeight: 500 }}>{t.year}</div>
-                  <div style={{ position: "relative" }}>
-                    {!m && <span style={{ position: "absolute", left: -48 - 4, top: 12, width: 9, height: 9, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 20px var(--accent-glow)" }} />}
-                    {m && <span style={{ position: "absolute", left: -24, top: 6, width: 9, height: 9, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 20px var(--accent-glow)" }} />}
-                    <h3 className="h-md" style={{ marginBottom: 8 }}>{t.title}</h3>
-                    <p style={{ color: "var(--text-dim)", fontSize: 15, lineHeight: 1.7, maxWidth: 560 }}>{t.desc}</p>
-                  </div>
+          <div style={{ textAlign: "center", marginBottom: m ? 48 : 72 }}>
+            <h2 className="h-lg" style={{ textTransform: "uppercase" }}>Meet the Team</h2>
+            <p className="lead" style={{ margin: "20px auto 0" }}>The passionate individuals behind START Lausanne.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: 20 }}>
+            {allMembers.map((mem, i) => (
+              <Reveal key={i} delay={(i % 12) * 40}>
+                <div style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg-elev)", padding: "28px 20px", textAlign: "center" }}>
+                  <div style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: 17 }}>{mem.n}</div>
+                  <div style={{ color: "var(--text-dim)", fontSize: 13, marginTop: 6 }}>{mem.role}</div>
                 </div>
               </Reveal>
             ))}
@@ -108,11 +137,35 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container card card-glass" style={{ padding: m ? 32 : 64, textAlign: "center" }}>
-          <Eyebrow>Spring 2026 · Now recruiting</Eyebrow>
-          <h2 className="h-xl" style={{ marginTop: 24, marginBottom: 40 }}>Pick a department. <span className="accent">Start building.</span></h2>
-          <Btn primary href="https://noteforms.com/forms/candidatures-recrutement-printemps-2026-td0wt8">Open application</Btn>
+      {/* Global network */}
+      <section className="section-dark" style={{ padding: m ? "72px 0" : "120px 0", position: "relative", overflow: "hidden" }}>
+        <GlowOrb top="30%" left="10%" size={600} color="var(--accent)" opacity={0.22} />
+        <div className="container" style={{ position: "relative", display: "grid", gridTemplateColumns: m ? "1fr" : "0.9fr 1.1fr", gap: 48, alignItems: "center" }}>
+          <Reveal>
+            <Img src="src/images/contest.jpeg" ratio="2048/1435" label="START Contest 2025-2026" />
+          </Reveal>
+          <Reveal delay={150}>
+            <Eyebrow>Global Network</Eyebrow>
+            <h2 className="h-lg" style={{ marginTop: 24, marginBottom: 24, color: "#fff", textTransform: "uppercase" }}>Part of the <span className="text-gradient">START Network</span></h2>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.72)", marginBottom: 32 }}>
+              START Lausanne is a proud chapter of the global START Network — founded in St. Gallen in 1996 and connecting student entrepreneurs across more than 22 cities in 17 countries. This gives our members access to an international community, cross-chapter events, and opportunities to collaborate with ambitious students worldwide.
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+              {[{ n: 22, suf: "+", l: "Cities" }, { n: 17, suf: "", l: "Countries" }].map((s, i) => (
+                <div key={i} className="card-glass" style={{ borderRadius: "var(--rad-lg)", padding: 24, textAlign: "center" }}>
+                  <div style={{ fontFamily: "var(--display)", fontWeight: 800, fontSize: m ? 32 : 44, color: "var(--accent)" }}>
+                    <Counter to={s.n} suffix={s.suf} />
+                  </div>
+                  <div className="mono-label" style={{ marginTop: 8, color: "rgba(255,255,255,0.55)" }}>{s.l}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+        <div style={{ overflow: "hidden", borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: m ? 20 : 28, padding: "4px 0" }}>
+          <Marquee items={networkCities.map((c, i) => (
+            <span key={i} style={{ fontFamily: "var(--display)", fontSize: m ? 20 : 28, fontWeight: 700, color: "rgba(255,255,255,0.4)", paddingRight: 56, letterSpacing: "-0.01em" }}>{c} <span style={{ color: "var(--accent)" }}>✦</span></span>
+          ))} speed={45} />
         </div>
       </section>
     </>

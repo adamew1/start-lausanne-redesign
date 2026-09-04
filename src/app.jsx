@@ -26,12 +26,11 @@ const App = () => {
 
   const pages = {
     home: HomePage,
+    events: EventsPage,
     about: AboutPage,
-    team: TeamPage,
-    contest: ContestPage,
-    hackathon: HackathonPage,
-    rtss: RtssPage,
     partners: PartnersPage,
+    rtss: RtssPage,
+    contest: ContestPage,
   };
   const Page = pages[route] || HomePage;
 
