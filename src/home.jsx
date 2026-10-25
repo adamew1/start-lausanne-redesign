@@ -63,6 +63,25 @@ const HomePage = () => {
         </div>}
       </section>
 
+      {/* Sponsors */}
+      <section className="section-sm" aria-labelledby="home-sponsors-title" style={{
+        borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)",
+        background: "var(--bg-elev)"
+      }}>
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", flexWrap: "wrap", gap: 24, marginBottom: m ? 28 : 40 }}>
+            <div>
+              <h2 id="home-sponsors-title" className="h-lg">Powered by our <span className="accent">sponsors.</span></h2>
+              <p className="lead" style={{ margin: "16px 0 0", maxWidth: "56ch" }}>
+                The universities, innovation hubs and organizations supporting our community.
+              </p>
+            </div>
+            <Btn onClick={() => window.__setRoute("partners")}>Meet our partners</Btn>
+          </div>
+          <SponsorGrid compact />
+        </div>
+      </section>
+
       {/* Global Community Statistics */}
       <section className="section" aria-label="Global Community Statistics">
         <div className="container" style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1.25fr 1fr", gap: m ? 48 : 64, alignItems: "center" }}>

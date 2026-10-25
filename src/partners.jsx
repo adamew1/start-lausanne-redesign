@@ -2,15 +2,6 @@
 const PartnersPage = () => {
   const m = useIsMobile();
 
-  const partners = [
-    { name: "UNIL", logo: "src/images/partners/unil-university.svg" },
-    { name: "EPFL", logo: "src/images/partners/epfl.png" },
-    { name: "HUB de l'UNIL", logo: "src/images/partners/unil_hub.png", maxHeight: 80 },
-    { name: "EHL Innovation Hub", logo: "src/images/partners/ehl-innovation-hub.svg" },
-    { name: "VentureLab", logo: "src/images/partners/venturelab.svg" },
-    { name: "InnovationTime", logo: "src/images/partners/innovationtime.png" },
-  ];
-
   const whyPartner = [
     { icon: "target", title: "Access Top Talent", d: "Get direct access to Lausanne's most driven and talented student entrepreneurs." },
     { icon: "rocket", title: "Innovation Pipeline", d: "Stay close to fresh ideas and be the first to spot promising startups and talent." },
@@ -59,24 +50,7 @@ const PartnersPage = () => {
             <h2 className="h-lg" style={{ textTransform: "uppercase" }}>Our Partners</h2>
             <p className="lead" style={{ margin: "20px auto 0" }}>Universities, innovation hubs and organizations that support our student entrepreneurs.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))", gap: m ? 12 : 20 }}>
-            {partners.map((p, i) => (
-              <Reveal key={p.name} delay={i * 50}>
-                <div style={{
-                  background: "#fff", border: "1px solid var(--border)", borderRadius: 14,
-                  padding: m ? "24px 12px" : "28px 24px", minHeight: 168, height: "100%",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center"
-                }}>
-                  <div style={{ width: "100%", height: 80, display: "grid", placeItems: "center" }}>
-                    <img src={p.logo} alt={p.name} loading="lazy" decoding="async"
-                         style={{ width: "100%", maxWidth: 240, height: p.maxHeight || 72, objectFit: "contain" }}
-                         onError={(e) => { e.currentTarget.style.display = "none"; }} />
-                  </div>
-                  <span style={{ fontFamily: "var(--display)", fontSize: m ? 12 : 14, fontWeight: 600, color: "#333" }}>{p.name}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <SponsorGrid />
         </div>
       </section>
 
