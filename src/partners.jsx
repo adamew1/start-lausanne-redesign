@@ -3,14 +3,12 @@ const PartnersPage = () => {
   const m = useIsMobile();
 
   const partners = [
-    { name: "QoQa", logo: "src/images/partners/qoqa.png" },
-    { name: "Walder Wyss", logo: "src/images/partners/walderwyss-logo.png" },
-    { name: "GENiLEM", logo: "src/images/partners/genilem.png" },
-    { name: "Infomaniak", logo: "src/images/partners/infomaniak.webp" },
-    { name: "Forum EPFL", logo: "src/images/partners/forum-epfl.png" },
-    { name: "UNIL HEC Lausanne", logo: "src/images/partners/unil.png" },
+    { name: "UNIL", logo: "src/images/partners/unil-university.svg" },
     { name: "EPFL", logo: "src/images/partners/epfl.png" },
-    { name: "UNIL Hub Entrepreneuriat et Innovation", logo: "src/images/partners/unil_hub.png", maxHeight: 80 },
+    { name: "HUB de l'UNIL", logo: "src/images/partners/unil_hub.png", maxHeight: 80 },
+    { name: "EHL Innovation Hub", logo: "src/images/partners/ehl-innovation-hub.svg" },
+    { name: "VentureLab", logo: "src/images/partners/venturelab.svg" },
+    { name: "InnovationTime", logo: "src/images/partners/innovationtime.png" },
   ];
 
   const whyPartner = [
@@ -59,20 +57,22 @@ const PartnersPage = () => {
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: m ? 48 : 72 }}>
             <h2 className="h-lg" style={{ textTransform: "uppercase" }}>Our Partners</h2>
-            <p className="lead" style={{ margin: "20px auto 0" }}>Companies that believe in empowering student entrepreneurs.</p>
+            <p className="lead" style={{ margin: "20px auto 0" }}>Universities, innovation hubs and organizations that support our student entrepreneurs.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))", gap: m ? 12 : 20 }}>
             {partners.map((p, i) => (
               <Reveal key={p.name} delay={i * 50}>
                 <div style={{
                   background: "#fff", border: "1px solid var(--border)", borderRadius: 14,
-                  padding: "24px 20px", minHeight: 120, height: "100%",
-                  display: "grid", placeItems: "center", textAlign: "center"
+                  padding: m ? "24px 12px" : "28px 24px", minHeight: 168, height: "100%",
+                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center"
                 }}>
-                  <img src={p.logo} alt={p.name}
-                       style={{ maxWidth: "100%", maxHeight: p.maxHeight || 56, objectFit: "contain" }}
-                       onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.nextSibling.style.display = "block"; }} />
-                  <span style={{ display: "none", fontFamily: "var(--display)", fontSize: 15, fontWeight: 600, color: "#111" }}>{p.name}</span>
+                  <div style={{ width: "100%", height: 80, display: "grid", placeItems: "center" }}>
+                    <img src={p.logo} alt={p.name} loading="lazy" decoding="async"
+                         style={{ width: "100%", maxWidth: 240, height: p.maxHeight || 72, objectFit: "contain" }}
+                         onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                  </div>
+                  <span style={{ fontFamily: "var(--display)", fontSize: m ? 12 : 14, fontWeight: 600, color: "#333" }}>{p.name}</span>
                 </div>
               </Reveal>
             ))}
