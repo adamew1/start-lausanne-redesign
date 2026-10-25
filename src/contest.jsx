@@ -48,11 +48,11 @@ const ContestPage = () => {
       },
       {
         type: "video",
-        src: "src/images/contest2026/videos/1V.MOV",
+        src: "src/images/contest2026/videos/1V.mp4",
       },
       {
         type: "video",
-        src: "src/images/contest2026/videos/2V.MOV",
+        src: "src/images/contest2026/videos/2V.mp4",
         muted: true,
       },
     ],
