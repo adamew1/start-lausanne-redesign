@@ -79,9 +79,9 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h4>Connect</h4>
-            <span style={{ display: "block", color: "rgba(255,255,255,0.4)", padding: "6px 0", fontSize: 14, fontWeight: 500 }}>Instagram</span>
-            <span style={{ display: "block", color: "rgba(255,255,255,0.4)", padding: "6px 0", fontSize: 14, fontWeight: 500 }}>LinkedIn</span>
-            <span style={{ display: "block", color: "rgba(255,255,255,0.4)", padding: "6px 0", fontSize: 14, fontWeight: 500 }}>YouTube</span>
+            <a href="https://www.instagram.com/startlausanne/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/company/start-lausanne/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.youtube.com/@startlausanne5235" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
           <div className="footer-col">
             <h4>Contact</h4>
