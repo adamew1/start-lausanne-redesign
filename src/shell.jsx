@@ -319,6 +319,107 @@ function DetailVideoBlock({ video }) {
   );
 }
 
+function EventMediaGallery({ media = [] }) {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filters = ["all", "photo", "video"];
+
+  const visibleMedia = media.filter(
+    (item) => activeFilter === "all" || item.type === activeFilter
+  );
+
+  return (
+    <div>
+      {/* Filter buttons */}
+      <div
+        style={{
+          display: "flex",
+          gap: 12,
+          marginBottom: 24,
+          flexWrap: "wrap",
+        }}
+      >
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setActiveFilter(filter)}
+            aria-pressed={activeFilter === filter}
+            style={{
+              padding: "10px 20px",
+              borderRadius: 999,
+              cursor: "pointer",
+              fontFamily: "var(--body)",
+              fontWeight: 600,
+              border: "1px solid var(--border-strong)",
+              background:
+                activeFilter === filter
+                  ? "var(--accent)"
+                  : "var(--bg-elev)",
+              color: activeFilter === filter ? "#fff" : "var(--text)",
+            }}
+          >
+            {filter === "all"
+              ? "All"
+              : filter === "photo"
+              ? "Photos"
+              : "Videos"}
+          </button>
+        ))}
+      </div>
+
+      {/* Media grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
+          gap: 16,
+        }}
+      >
+        {visibleMedia.map((item, index) => (
+          <div key={item.src + index}>
+            {item.type === "photo" ? (
+              <img
+                src={item.src}
+                alt={item.alt || "Event photo"}
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  aspectRatio: "4/3",
+                  objectFit: "cover",
+                  borderRadius: "var(--rad-md)",
+                  display: "block",
+                }}
+              />
+            ) : (
+              <video
+                src={item.src}
+                controls
+                muted
+                preload="metadata"
+                style={{
+                  width: "100%",
+                  aspectRatio: "4/3",
+                  objectFit: "cover",
+                  borderRadius: "var(--rad-md)",
+                  display: "block",
+                  background: "#000",
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {visibleMedia.length === 0 && (
+        <p style={{ color: "var(--text-mute)", marginTop: 16 }}>
+          No media available yet.
+        </p>
+      )}
+    </div>
+  );
+}
+
 function EventDetailShell({ event, children }) {
   const m = useIsMobile();
   return (
@@ -348,7 +449,7 @@ function EventDetailShell({ event, children }) {
 
             <div>
               <DetailHeading>Event Highlights</DetailHeading>
-              <DetailVideoBlock video={event.video} />
+              <EventMediaGallery media={event.media || []} />
             </div>
 
             {children}
