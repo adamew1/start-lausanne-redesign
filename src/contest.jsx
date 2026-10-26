@@ -5,6 +5,57 @@ const ContestPage = () => {
   const base = EVENTS.find(e => e.id === "contest");
   const event = {
     ...base,
+    media: [
+      {
+        type: "photo",
+        src: "src/images/contest2026/2.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/3.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/1.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/6.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/7.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/8.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/9.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "photo",
+        src: "src/images/contest2026/10.jpg",
+        alt: "Contest event"
+      },
+      {
+        type: "video",
+        src: "src/images/contest2026/videos/1V.mp4",
+      },
+      {
+        type: "video",
+        src: "src/images/contest2026/videos/2V.mp4",
+        muted: true,
+      },
+    ],
     fullDescription: "The START Contest is START Lausanne's flagship competition, open to Bachelor, Master and PhD students enrolled at any Haute École recognized in Switzerland under the LEHE, primarily across Suisse romande. Over six months — from late October to early May — the contest guides teams from a first idea through a series of workshops and eliminatory evaluation stages to a live grand finale, with mentoring, workshops, networking and access to the entrepreneurial ecosystem all along the way.",
     highlights: [
       "Four structured phases: Preparation, Launch, Coaching & Selection, Grand Finale",
