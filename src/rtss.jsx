@@ -7,52 +7,52 @@ const RtssPage = () => {
     media: [
       {
         type: "photo",
-        src: "src/images/rtss2026/1.jpg",
+        src: "src/images/rtss2026/1.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/2.jpg",
+        src: "src/images/rtss2026/2.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/3.jpg",
+        src: "src/images/rtss2026/3.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/4.jpg",
+        src: "src/images/rtss2026/4.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/6.jpg",
+        src: "src/images/rtss2026/6.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/7.jpg",
+        src: "src/images/rtss2026/7.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/8.jpg",
+        src: "src/images/rtss2026/8.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/9.jpg",
+        src: "src/images/rtss2026/9.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/10.jpg",
+        src: "src/images/rtss2026/10.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/5.jpg",
+        src: "src/images/rtss2026/5.JPG",
         alt: "Road to START Summit event"
       },
     ],
