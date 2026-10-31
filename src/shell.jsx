@@ -459,6 +459,11 @@ function EventDetailShell({ event, children }) {
       <section className="section" style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "2fr 1fr", gap: m ? 48 : 64, alignItems: "start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+            {event.id === "contest" && (
+              <div>
+                <DetailVideoBlock video={event.introVideo} />
+              </div>
+            )}
             <div>
               <DetailHeading>About This Event</DetailHeading>
               <p style={{ color: "var(--text-dim)", fontSize: 16, lineHeight: 1.7 }}>{event.fullDescription}</p>
@@ -514,7 +519,7 @@ const EVENTS = [
     title: "Start Contest",
     shortDescription: "A six-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
     image: "src/images/contest.jpeg",
-    details: { date: "Late Oct – Early May", duration: "6 months", location: "Lausanne · UNIL & EPFL" },
+    details: { date: "March – May", duration: "3 months", location: "Lausanne · UNIL & EPFL" },
   },
   {
     id: "hackathon", clickable: false, icon: "⚡",

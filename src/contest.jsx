@@ -5,6 +5,7 @@ const ContestPage = () => {
   const base = EVENTS.find(e => e.id === "contest");
   const event = {
     ...base,
+    introVideo: null,
     media: [
       {
         type: "photo",
