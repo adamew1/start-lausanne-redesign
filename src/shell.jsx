@@ -29,11 +29,12 @@ function Nav({ route, setRoute }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
     { id: "home", label: "Home" },
+    { id: "contest", label: "Contest" },
     { id: "events", label: "Events" },
     { id: "about", label: "About" },
     { id: "partners", label: "Partners" },
   ];
-  const activeIds = { home: "home", events: "events", rtss: "events", contest: "events", about: "about", partners: "partners" };
+  const activeIds = { home: "home", events: "events", rtss: "events", contest: "contest", about: "about", partners: "partners" };
   return (
     <nav className={"nav " + (mobileOpen ? "mobile-open" : "")}>
       <div className="nav-inner">
@@ -428,7 +429,23 @@ function EventDetailShell({ event, children }) {
         <GlowOrb top="-20%" right="-10%" size={700} color="var(--accent)" opacity={0.18} />
         <GlowOrb bottom="-30%" left="-10%" size={600} color="var(--secondary)" opacity={0.14} />
         <div className="container" style={{ position: "relative" }}>
-          <div onClick={() => window.__setRoute("events")} style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer", color: "var(--text-mute)", marginBottom: 40, fontSize: 13, fontWeight: 600 }}>← Back to Events</div>
+          {event.id !== "contest" && (
+            <div
+              onClick={() => window.__setRoute("events")}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                cursor: "pointer",
+                color: "var(--text-mute)",
+                marginBottom: 40,
+                fontSize: 13,
+                fontWeight: 600
+              }}
+            >
+              ← Back to Events
+            </div>
+          )}
           <h1 className="h-display text-gradient" style={{ maxWidth: "18ch" }}>{event.title}</h1>
           <p className="lead" style={{ marginTop: 32, maxWidth: "60ch" }}>{event.shortDescription}</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
