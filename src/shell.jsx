@@ -535,7 +535,7 @@ const EVENTS = [
   {
     id: "contest", clickable: true, icon: "🏆",
     title: "Start Contest",
-    shortDescription: "A six-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
+    shortDescription: "A three-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
     image: "src/images/contest.jpeg",
     details: { date: "March – May", duration: "3 months", location: "Lausanne · UNIL & EPFL" },
   },
