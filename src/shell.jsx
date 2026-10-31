@@ -453,6 +453,24 @@ function EventDetailShell({ event, children }) {
             <DetailFactPill icon="clock">{event.details.duration}</DetailFactPill>
             <DetailFactPill icon="pin">{event.details.location}</DetailFactPill>
           </div>
+          {event.id === "contest" && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 16,
+                marginTop: 36
+              }}
+            >
+              <Btn primary href={event.infoSessionUrl}>
+                Info Session
+              </Btn>
+
+              <Btn accent href={event.registrationUrl}>
+                Register for Contest
+              </Btn>
+            </div>
+          )}
         </div>
       </section>
 

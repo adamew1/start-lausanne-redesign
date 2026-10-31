@@ -6,6 +6,8 @@ const ContestPage = () => {
   const event = {
     ...base,
     introVideo: null,
+    infoSessionUrl: null,
+    registrationUrl: null,
     media: [
       {
         type: "photo",
