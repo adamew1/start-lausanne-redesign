@@ -5,6 +5,9 @@ const ContestPage = () => {
   const base = EVENTS.find(e => e.id === "contest");
   const event = {
     ...base,
+    introVideo: null,
+    infoSessionUrl: null,
+    registrationUrl: null,
     media: [
       {
         type: "photo",
@@ -56,7 +59,7 @@ const ContestPage = () => {
         muted: true,
       },
     ],
-    fullDescription: "The START Contest is START Lausanne's flagship competition, open to Bachelor, Master and PhD students enrolled at any Haute École recognized in Switzerland under the LEHE, primarily across Suisse romande. Over six months — from late October to early May — the contest guides teams from a first idea through a series of workshops and eliminatory evaluation stages to a live grand finale, with mentoring, workshops, networking and access to the entrepreneurial ecosystem all along the way.",
+    fullDescription: "The START Contest is START Lausanne's flagship competition, open to Bachelor, Master and PhD students enrolled at any Haute École recognized in Switzerland under the LEHE, primarily across Suisse romande. Over three months — from March to May — the contest guides teams from a first idea through a series of workshops and eliminatory evaluation stages to a live grand finale, with mentoring, workshops, networking and access to the entrepreneurial ecosystem all along the way.",
     highlights: [
       "Four structured phases: Preparation, Launch, Coaching & Selection, Grand Finale",
       "Up to CHF 40'000 in total prizes across three laureates",

@@ -29,11 +29,12 @@ function Nav({ route, setRoute }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
     { id: "home", label: "Home" },
+    { id: "contest", label: "Contest" },
     { id: "events", label: "Events" },
     { id: "about", label: "About" },
     { id: "partners", label: "Partners" },
   ];
-  const activeIds = { home: "home", events: "events", rtss: "events", contest: "events", about: "about", partners: "partners" };
+  const activeIds = { home: "home", events: "events", rtss: "events", contest: "contest", about: "about", partners: "partners" };
   return (
     <nav className={"nav " + (mobileOpen ? "mobile-open" : "")}>
       <div className="nav-inner">
@@ -428,7 +429,23 @@ function EventDetailShell({ event, children }) {
         <GlowOrb top="-20%" right="-10%" size={700} color="var(--accent)" opacity={0.18} />
         <GlowOrb bottom="-30%" left="-10%" size={600} color="var(--secondary)" opacity={0.14} />
         <div className="container" style={{ position: "relative" }}>
-          <div onClick={() => window.__setRoute("events")} style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer", color: "var(--text-mute)", marginBottom: 40, fontSize: 13, fontWeight: 600 }}>← Back to Events</div>
+          {event.id !== "contest" && (
+            <div
+              onClick={() => window.__setRoute("events")}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                cursor: "pointer",
+                color: "var(--text-mute)",
+                marginBottom: 40,
+                fontSize: 13,
+                fontWeight: 600
+              }}
+            >
+              ← Back to Events
+            </div>
+          )}
           <h1 className="h-display text-gradient" style={{ maxWidth: "18ch" }}>{event.title}</h1>
           <p className="lead" style={{ marginTop: 32, maxWidth: "60ch" }}>{event.shortDescription}</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
@@ -436,12 +453,35 @@ function EventDetailShell({ event, children }) {
             <DetailFactPill icon="clock">{event.details.duration}</DetailFactPill>
             <DetailFactPill icon="pin">{event.details.location}</DetailFactPill>
           </div>
+          {event.id === "contest" && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 16,
+                marginTop: 36
+              }}
+            >
+              <Btn primary href={event.infoSessionUrl}>
+                Info Session
+              </Btn>
+
+              <Btn accent href={event.registrationUrl}>
+                Register for Contest
+              </Btn>
+            </div>
+          )}
         </div>
       </section>
 
       <section className="section" style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "2fr 1fr", gap: m ? 48 : 64, alignItems: "start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+            {event.id === "contest" && (
+              <div>
+                <DetailVideoBlock video={event.introVideo} />
+              </div>
+            )}
             <div>
               <DetailHeading>About This Event</DetailHeading>
               <p style={{ color: "var(--text-dim)", fontSize: 16, lineHeight: 1.7 }}>{event.fullDescription}</p>
@@ -495,9 +535,9 @@ const EVENTS = [
   {
     id: "contest", clickable: true, icon: "🏆",
     title: "Start Contest",
-    shortDescription: "A six-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
+    shortDescription: "A three-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
     image: "src/images/contest.jpeg",
-    details: { date: "Late Oct – Early May", duration: "6 months", location: "Lausanne · UNIL & EPFL" },
+    details: { date: "March – May", duration: "3 months", location: "Lausanne · UNIL & EPFL" },
   },
   {
     id: "hackathon", clickable: false, icon: "⚡",
