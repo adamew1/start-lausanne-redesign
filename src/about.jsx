@@ -2,6 +2,16 @@
 const AboutPage = () => {
   const m = useIsMobile();
 
+  const departmentEmails = {
+    Contest: "contest@startlausanne.ch",
+    Coordination: "coordination@startlausanne.ch",
+    Event: "events@startlausanne.ch",
+    Finance: "partnerships@startlausanne.ch",
+    Marketing: "marketing@startlausanne.ch",
+    IT: "it@startlausanne.ch",
+    Intern: "intern@startlausanne.ch",
+  };
+
   const values = [
     { icon: "people", title: "Community First", d: "We believe in the power of bringing ambitious people together to create meaningful connections." },
     { icon: "globe", title: "Global Mindset", d: "Part of a network spanning 22 cities and 17 countries, we think and act globally." },
@@ -20,30 +30,57 @@ const AboutPage = () => {
   ];
 
   const board = [
-    { name: "Henrik Gruber", role: "President" },
-    { name: "Mattia La Gennusa", role: "Vice-President" },
-    { name: "Cedric Mercado", role: "Treasurer" },
+    { name: "Henrik Gruber", role: "President", email: "president@startlausanne.ch" },
+    { name: "Mattia La Gennusa", role: "Vice-President", email: "president@startlausanne.ch" },
+    { name: "Cedric Mercado", role: "Treasurer", email: departmentEmails.Finance },
   ];
 
   const teams = [
-    { name: "Contest Team", members: ["Yasmine Jouini", "Seyoung Kim"] },
-    { name: "Coordination Team", members: ["Tariq Azzouz", "Rayhana Bentahir"] },
-    { name: "Event Team", members: ["Athish Sinnandy", "Omman Hashemi", "Dhia Eddine Naffati", "Ghalia Bennani"] },
-    { name: "Finance Team", members: ["Aurelia Marchese", "Lena Sieber", "Pablo Suarez", "Stephan Ferrieri"] },
-    { name: "Marketing Team", members: ["Elena Bachos", "Amélie Ruggeri", "Lina Boubeker", "Ludivine Berger"] },
-    { name: "IT Team", members: ["Rim Abkari", "Adam Lahchimi", "Ayman Bouzaid"] },
-    { name: "Intern Team", members: ["Arianna Nepomuceno"] },
+    { name: "Contest Team", heads: ["Yasmine Jouini"], members: ["Yasmine Jouini", "Seyoung Kim"] },
+    { name: "Coordination Team", heads: ["Tariq Azzouz"], members: ["Tariq Azzouz", "Rayhana Bentahir"] },
+    { name: "Event Team", heads: ["Athish Sinnandy", "Omman Hashemi"], members: ["Athish Sinnandy", "Omman Hashemi", "Dhia Eddine Naffati", "Ghalia Bennani"] },
+    { name: "Finance Team", heads: ["Aurelia Marchese"], members: ["Aurelia Marchese", "Lena Sieber", "Pablo Suarez", "Stephan Ferrieri"] },
+    { name: "Marketing Team", heads: ["Elena Bachos"], members: ["Elena Bachos", "Amélie Ruggeri", "Lina Boubeker", "Ludivine Berger"] },
+    { name: "IT Team", heads: ["Rim Abkari"], members: ["Rim Abkari", "Adam Lahchimi", "Ayman Bouzaid"] },
+    { name: "Intern Team", heads: ["Mattia La Gennusa"], members: ["Mattia La Gennusa", "Arianna Nepomuceno"] },
   ];
 
   const allMembers = [
-    ...board.map(b => ({ n: b.name, role: b.role })),
-    ...teams.flatMap(t => t.members.map(n => ({ n, role: t.name }))),
-  ];
+    ...board.map(b => ({ n: b.name, role: b.role, email: b.email })),
+    ...teams.flatMap(t => t.members.map(n => ({
+      n,
+      role: t.heads.includes(n) ? `Head of ${t.name.replace(" Team", "")}` : t.name,
+      email: t.heads.includes(n) ? departmentEmails[t.name.replace(" Team", "")] : null,
+    }))),
+  ].sort((a, b) => Number(Boolean(b.email)) - Number(Boolean(a.email)));
 
   const networkCities = ["Lausanne","St. Gallen","Nuremberg","Helsinki","Stuttgart","Vaduz","Munich","Berlin","Barcelona","Lisbon","Hamburg","Maastricht","Paris","Vienna","Mexico City","São Paulo","Lima","Quito","Bogotá","London","Milan","Warsaw"];
 
   return (
     <>
+      <style>{`
+        .about-contact-card, .about-member-card {
+          display: block;
+          height: 100%;
+          background-color: var(--bg-elev);
+          transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .about-contact-card:hover {
+          background-color: var(--bg-tint);
+          box-shadow: inset 0 0 0 1px var(--accent);
+        }
+        .about-contact-card:focus-visible {
+          outline: 2px solid var(--accent);
+          outline-offset: -3px;
+        }
+        .about-contact-email {
+          display: block;
+          margin-top: 14px;
+          color: var(--accent);
+          font-size: 13px;
+          overflow-wrap: anywhere;
+        }
+      `}</style>
       {/* Hero */}
       <section style={{ position: "relative", minHeight: m ? "70vh" : "88vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(src/images/about.jpeg)", backgroundSize: "cover", backgroundPosition: "center" }} />
@@ -106,11 +143,12 @@ const AboutPage = () => {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
             {depts.map((d, i) => (
               <Reveal key={d.name} delay={i * 60} style={{ flex: m ? "1 1 100%" : "1 1 260px" }}>
-                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 32, minHeight: m ? "auto" : 220, height: "100%" }}>
+                <a className="about-contact-card" href={`mailto:${departmentEmails[d.name]}`} style={{ padding: m ? 24 : 32, minHeight: m ? "auto" : 220 }}>
                   <div style={{ fontSize: 28, marginBottom: 16 }}>{d.icon}</div>
                   <h3 className="h-md" style={{ marginBottom: 10, textTransform: "uppercase", fontSize: 18 }}>{d.name}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.6 }}>{d.d}</p>
-                </div>
+                  <span className="about-contact-email">{departmentEmails[d.name].split("@")[0]}<wbr />@{departmentEmails[d.name].split("@")[1]}</span>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -125,14 +163,18 @@ const AboutPage = () => {
             <p className="lead" style={{ margin: "20px auto 0" }}>The passionate individuals behind START Lausanne.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: m ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: 20 }}>
-            {allMembers.map((mem, i) => (
-              <Reveal key={i} delay={(i % 12) * 40}>
-                <div style={{ border: "1px solid var(--border)", borderRadius: 14, background: "var(--bg-elev)", padding: "28px 20px", textAlign: "center" }}>
-                  <div style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: 17 }}>{mem.n}</div>
-                  <div style={{ color: "var(--text-dim)", fontSize: 13, marginTop: 6 }}>{mem.role}</div>
-                </div>
-              </Reveal>
-            ))}
+            {allMembers.map((mem, i) => {
+              const MemberCard = mem.email ? "a" : "div";
+              return (
+                <Reveal key={i} delay={(i % 12) * 40}>
+                  <MemberCard className={mem.email ? "about-contact-card" : "about-member-card"} href={mem.email ? `mailto:${mem.email}` : undefined} style={{ border: "1px solid var(--border)", borderRadius: 14, padding: "28px 20px", textAlign: "center" }}>
+                    <div style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: 17 }}>{mem.n}</div>
+                    <div style={{ color: "var(--text-dim)", fontSize: 13, marginTop: 6 }}>{mem.role}</div>
+                    {mem.email && <span className="about-contact-email">{mem.email.split("@")[0]}<wbr />@{mem.email.split("@")[1]}</span>}
+                  </MemberCard>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
