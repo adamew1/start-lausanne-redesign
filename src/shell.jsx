@@ -490,7 +490,7 @@ const EVENTS = [
     shortDescription: "Annual pitch competition connecting early‑stage startups to investors and opportunities.",
     image: "src/images/summit.jpeg",
     imagePosition: "center 88%",
-    details: { date: "TBD", duration: "Single day", location: "Lausanne" },
+    details: { date: "10 December 2026", duration: "Single day", location: "UNIL · Synathlon 1216" },
   },
   {
     id: "contest", clickable: true, icon: "🏆",
