@@ -2,12 +2,12 @@
 // Copy reproduced from starthelsinki.com/events/1, Helsinki swapped for Lausanne.
 const RTSS_STARTUP_LOGOS = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `src/images/rtss2026/startups/startup-${n}.jpg`);
 // Orbi registration link — the "Register Now" button does nothing until this is filled in.
-const RTSS_REGISTER_URL = "";
+const RTSS_REGISTER_URL = "https://orbi.io/l/YZdJIn0dme19vUZQ";
 
 // Continuous logo strip: arrows step one logo and pause it, scrolling resumes shortly after the last click.
 function StartupLogoCarousel({ logos, speed = 40, resumeDelay = 1500 }) {
   const m = useIsMobile();
-  const tileWidth = 240;
+  const tileWidth = m ? 280 : 320;
   const gap = 24;
   const step = tileWidth + gap;
   const loop = logos.length * step;
@@ -49,7 +49,7 @@ function StartupLogoCarousel({ logos, speed = 40, resumeDelay = 1500 }) {
   const arrow = (dir) => (
     <button type="button" aria-label={dir < 0 ? "Previous startups" : "Next startups"} onClick={() => move(dir)} style={{
       position: "absolute", top: "50%", [dir < 0 ? "left" : "right"]: 0, transform: "translateY(-50%)", zIndex: 2,
-      width: 40, height: 40, borderRadius: 999, border: "1px solid var(--border)", background: "rgba(8,8,10,0.75)",
+      width: m ? 32 : 40, height: m ? 32 : 40, borderRadius: 999, border: "1px solid var(--border)", background: "rgba(8,8,10,0.75)",
       color: "#fff", fontSize: 22, lineHeight: 1, cursor: "pointer", display: "grid", placeItems: "center"
     }}>{dir < 0 ? "‹" : "›"}</button>
   );
