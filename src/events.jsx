@@ -1,7 +1,7 @@
 // Events listing page
 const EventsPage = () => {
   const m = useIsMobile();
-
+  const displayedEvents = EVENTS.filter(e => e.id !== "contest");
   return (
     <>
       <section style={{ position: "relative", paddingTop: 160, paddingBottom: 96, overflow: "hidden" }}>
@@ -17,7 +17,7 @@ const EventsPage = () => {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
-            {EVENTS.map((e, i) => {
+            {displayedEvents.map((e, i) => {
               const card = (
                 <div className="card-glass" style={{ borderRadius: "var(--rad-lg)", padding: 0, overflow: "hidden", height: "100%", minHeight: 480, display: "flex", flexDirection: "column", cursor: e.clickable ? "pointer" : "default" }}>
                   <div style={{ position: "relative" }}>
@@ -46,7 +46,7 @@ const EventsPage = () => {
                   </div>
                 </div>
               );
-              const centerLast = !m && EVENTS.length % 3 === 1 && i === EVENTS.length - 1;
+              const centerLast = !m && displayedEvents.length % 3 === 1 && i === displayedEvents.length - 1;
               return (
                 <Reveal key={e.id} delay={i * 80} style={centerLast ? { gridColumn: "2 / 3" } : undefined}>
                   {e.clickable
