@@ -143,12 +143,11 @@ const AboutPage = () => {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 1, background: "var(--border)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden" }}>
             {depts.map((d, i) => (
               <Reveal key={d.name} delay={i * 60} style={{ flex: m ? "1 1 100%" : "1 1 260px" }}>
-                <a className="about-contact-card" href={`mailto:${departmentEmails[d.name]}`} style={{ padding: m ? 24 : 32, minHeight: m ? "auto" : 220 }}>
+                <div style={{ background: "var(--bg-elev)", padding: m ? 24 : 32, minHeight: m ? "auto" : 220, height: "100%" }}>
                   <div style={{ fontSize: 28, marginBottom: 16 }}>{d.icon}</div>
                   <h3 className="h-md" style={{ marginBottom: 10, textTransform: "uppercase", fontSize: 18 }}>{d.name}</h3>
                   <p style={{ color: "var(--text-dim)", fontSize: 14, lineHeight: 1.6 }}>{d.d}</p>
-                  <span className="about-contact-email">{departmentEmails[d.name].split("@")[0]}<wbr />@{departmentEmails[d.name].split("@")[1]}</span>
-                </a>
+                </div>
               </Reveal>
             ))}
           </div>
