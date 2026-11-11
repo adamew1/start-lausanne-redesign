@@ -6,7 +6,7 @@ const ContestPage = () => {
   const event = {
     ...base,
     introVideo: null,
-    infoSessionUrl: null,
+    infoSessionUrl: "https://linktr.ee/STARTcontest",
     registrationUrl: null,
     media: [
       {
