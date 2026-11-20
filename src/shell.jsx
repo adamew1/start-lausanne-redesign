@@ -487,10 +487,12 @@ function EventDetailShell({ event, children }) {
               <p style={{ color: "var(--text-dim)", fontSize: 16, lineHeight: 1.7 }}>{event.fullDescription}</p>
             </div>
 
-            <div>
-              <DetailHeading>Event Highlights</DetailHeading>
-              <EventMediaGallery media={event.media || []} />
-            </div>
+            {event.media?.length > 0 && (
+              <div>
+                <DetailHeading>Event Highlights</DetailHeading>
+                <EventMediaGallery media={event.media} />
+              </div>
+            )}
 
             {children}
           </div>
@@ -510,11 +512,15 @@ function EventDetailShell({ event, children }) {
               </div>
             )}
 
-            <div className="card" style={{ padding: 18, textAlign: "center", borderColor: "var(--accent)" }}>
-              <DetailHeading size="sm">Interested?</DetailHeading>
-              <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 16 }}>Join START Lausanne to participate in this event.</p>
-              <Btn accent href={APPLY_URL}>Apply Now</Btn>
-            </div>
+            {event.id !== "hackathon" && event.id !== "contest" && (
+              <div className="card" style={{ padding: 18, textAlign: "center", borderColor: "var(--accent)" }}>
+                <DetailHeading size="sm">Interested?</DetailHeading>
+                <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 16 }}>
+                  Join START Lausanne to participate in this event.
+                </p>
+                <Btn accent href={APPLY_URL}>Apply Now</Btn>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -540,11 +546,11 @@ const EVENTS = [
     details: { date: "March – May", duration: "3 months", location: "Lausanne · UNIL & EPFL" },
   },
   {
-    id: "hackathon", clickable: false, icon: "⚡",
-    title: "Start Hackathon",
-    shortDescription: "An intensive two-day sprint where student teams build innovative solutions to real-world challenges set by our partners.",
+    id: "hackathon", clickable: true, icon: "⚡",
+    title: "Start Hackathon 2027",
+    shortDescription: "An intensive three-day sprint where student teams build innovative solutions to real-world challenges set by our partners.",
     image: "src/images/hack.webp",
-    details: { date: "TBD", duration: "2 days", location: "Lausanne" },
+    details: { date: "26-28 February 2027", duration: "3 days", location: "Lausanne" },
   },
   {
     id: "gew", clickable: false, icon: "🌍",
