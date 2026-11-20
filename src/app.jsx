@@ -31,6 +31,7 @@ const App = () => {
     partners: PartnersPage,
     rtss: RtssPage,
     contest: ContestPage,
+    hackathon: HackathonPage,
   };
   const Page = pages[route] || HomePage;
 
