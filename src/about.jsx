@@ -1,56 +1,110 @@
-// Each member has one profile, grouped by department.
+// A member has one profile. alsoIn records a second team assignment.
 const DEPARTMENTS = [
   {
     name: "Board", description: "Leading START Lausanne and representing the association.",
     members: [
-      { name: "Henrik Gruber", role: "President", email: "president@startlausanne.ch", linkedin: "gruber-henrik" },
-      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch", linkedin: "mattia-la-gennusa-162704372" },
-      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch", linkedin: "cedric-mercado-308879217" },
+      { name: "Henrik Gruber", role: "President", email: "henrik.gruber@startlausanne.ch", linkedin: "gruber-henrik" },
+      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch", linkedin: "mattia-la-gennusa-162704372", alsoIn: "Intern" },
+      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch", linkedin: "cedric-mercado-308879217", alsoIn: "Finance" },
     ],
   },
   {
     name: "Contest", description: "Running the START Contest from applications to the grand finale.", email: "contest@startlausanne.ch",
     members: [
-      { name: "Yasmine Jouini", role: "Head of Contest", linkedin: "yasmine-jouini-7a803828a" },
-      { name: "Seyoung Kim", linkedin: "seyoung-kim-22a68a172" },
+      { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", linkedin: "yasmine-jouini-7a803828a", alsoIn: "Board" },
+      { name: "Gwenaëlle Gisiger", email: "gwenaelle.gisiger@startlausanne.ch", linkedin: "gwena%C3%ABlle-gisiger-8b54791b4" },
+      { name: "Jiarui Xie", email: "jiarui.xie@startlausanne.ch" },
+      { name: "Maelys Tavares", email: "maelys.tavares@startlausanne.ch", linkedin: "ma%C3%ABlys-tavares-ab9836288" },
+      { name: "Rayhana Bentahir", email: "rayhana.bentahir@startlausanne.ch" },
+      { name: "Tuna Hizarci", email: "tuna.hizarci@startlausanne.ch" },
+      { name: "Yassine ElHachimi", email: "yassine.elhachimi@startlausanne.ch" },
     ],
   },
   {
     name: "Coordination", description: "Managing communication between all departments, and keeping the whole association organized.", email: "coordination@startlausanne.ch",
-    members: [{ name: "Tariq Azzouz", role: "Head of Coordination" }, { name: "Rayhana Bentahir" }],
+    members: [
+      { name: "Tariq Azzouz", role: "Head of Coordination", email: "tariq.azzouz@startlausanne.ch", alsoIn: "Board" },
+      { name: "Martina Peruzzo", email: "martina.peruzzo@startlausanne.ch", linkedin: "martinaperuzzo" },
+    ],
   },
   {
     name: "Event", description: "Planning the events that bring our community together, from workshops to the hackathon.", email: "events@startlausanne.ch",
     members: [
-      { name: "Athish Sinnandy", role: "Co-head of Event" },
-      { name: "Omman Hashemi", role: "Co-head of Event" },
-      { name: "Dhia Eddine Naffati", linkedin: "dhia-naffati-01b95b336" },
-      { name: "Ghalia Bennani", linkedin: "ghalia-bennani" },
+      { name: "Athish Sinnandy", role: "Co-head of Event", email: "athish.sinnandy@startlausanne.ch", alsoIn: "Board" },
+      { name: "Omman Hashemi", role: "Co-head of Event", email: "omman.hashemi@startlausanne.ch", alsoIn: "Board" },
+      { name: "Dhia Eddine Naffati", email: "dhiaeddine.naffati@startlausanne.ch", linkedin: "dhia-naffati-01b95b336" },
+      { name: "Iuliia Eremina", email: "iuliia.eremina@startlausanne.ch" },
+      { name: "Juan Esteban Hurtado Corzo", email: "esteban.hurtado@startlausanne.ch" },
+      { name: "Lida Mikaelyan", email: "lida.mikaelyan@startlausanne.ch" },
+      { name: "Max Dittmann", email: "max.dittmann@startlausanne.ch" },
+      { name: "Petra Végh", email: "petra.vegh@startlausanne.ch", linkedin: "petravegh" },
+      { name: "Varsha Rasiah", email: "varsha.rasiah@startlausanne.ch" },
     ],
   },
   {
     name: "Finance", description: "Managing the association’s budget, resources and financial sustainability.", email: "partnerships@startlausanne.ch",
     members: [
-      { name: "Aurelia Marchese", role: "Head of Finance" },
-      { name: "Lena Sieber" }, { name: "Pablo Suarez" }, { name: "Stephan Ferrieri", linkedin: "stephan-ferrieri-21b7a5378" },
+      { name: "Aurelia Marchese", role: "Head of Finance", email: "aurelia.marchese@startlausanne.ch", alsoIn: "Board" },
+      { name: "Caio Barretta Ferreira", email: "caio.barretta.ferreira@startlausanne.ch", linkedin: "caio-barretta-ferreira" },
+      { name: "Gabin Picot", email: "gabin.picot@startlausanne.ch", linkedin: "gabin-picot-552484393" },
+      { name: "Ghalia Bennani", email: "ghalia.bennani@startlausanne.ch", linkedin: "ghalia-bennani" },
+      { name: "Hamza Bichiou", email: "hamza.bichiou@startlausanne.ch" },
+      { name: "Lena Sieber", email: "lena.sieber@startlausanne.ch" },
+      { name: "Louis Payer", email: "louis.payer@startlausanne.ch", linkedin: "louispayer" },
+      { name: "Pablo Suarez", email: "pablo.suarez@startlausanne.ch" },
+      { name: "Stephan Ferrieri", email: "stephan.ferrieri@startlausanne.ch", linkedin: "stephan-ferrieri-21b7a5378" },
     ],
   },
   {
     name: "Marketing", description: "Looking after our brand and creating the campaigns that introduce students to START.", email: "marketing@startlausanne.ch",
     members: [
-      { name: "Elena Bachos", role: "Head of Marketing" }, { name: "Amélie Ruggeri" },
-      { name: "Lina Boubeker" }, { name: "Ludivine Berger", linkedin: "ludivineberger" },
+      { name: "Elena Bachos", role: "Head of Marketing", email: "elena.bachos@startlausanne.ch", alsoIn: "Board" },
+      { name: "Amélie Ruggeri", email: "amelie.ruggeri@startlausanne.ch" },
+      { name: "Lina Boubeker", email: "lina.boubeker@startlausanne.ch" },
+      { name: "Ludivine Berger", email: "ludivine.berger@startlausanne.ch", linkedin: "ludivineberger" },
+      { name: "Rokas Bertasius", email: "rokas.bertasius@startlausanne.ch", linkedin: "rokasbertasius" },
     ],
   },
   {
     name: "IT", description: "Building the website, automations and internal tools that support our teams.", email: "it@startlausanne.ch",
-    members: [{ name: "Rim Abkari", role: "Head of IT" }, { name: "Adam Lahchimi", linkedin: "adam-lahchimi-206a2a2b1" }, { name: "Ayman Bouzaid" }],
+    members: [
+      { name: "Rim Abkari", role: "Head of IT", email: "rim.abkari@startlausanne.ch", alsoIn: "Board" },
+      { name: "Adam Lahchimi", email: "adam.lahchimi@startlausanne.ch", linkedin: "adam-lahchimi-206a2a2b1" },
+      { name: "Ayman Bouzaid", email: "ayman.bouzaid@startlausanne.ch" },
+      { name: "Chema Laadhar", email: "chema.laadhar@startlausanne.ch" },
+      { name: "Maxime Ramponi", email: "maxime.ramponi@startlausanne.ch" },
+    ],
   },
   {
     name: "Intern", description: "Handling recruiting and other HR-related tasks. Organizing team buildings and making sure everyone stays involved.", email: "intern@startlausanne.ch",
-    members: [{ name: "Arianna Nepomuceno" }],
+    members: [
+      { name: "Arianna Nepomuceno", email: "arianna.nepomuceno@startlausanne.ch" },
+      { name: "Giacomo Moserle", email: "giacomo.moserle@startlausanne.ch" },
+      { name: "Irene Petochi", email: "irene.petochi@startlausanne.ch", linkedin: "irene-petochi-5b1b3334b" },
+    ],
   },
 ];
+
+const sharedMembers = DEPARTMENTS.flatMap(dept => dept.members.filter(member => member.alsoIn));
+
+function profileId(member) {
+  return "member-" + member.email.split("@")[0];
+}
+
+function SharedTeamMembers({ department }) {
+  const members = sharedMembers.filter(member => member.alsoIn === department);
+  if (!members.length) return null;
+  return (
+    <div className="shared-team-members">
+      <h4>{department === "Board" ? "Department heads on the board" : "Committee member"}</h4>
+      <ul>
+        {members.map(member => (
+          <li key={member.email}><a href={"#" + profileId(member)}>{member.name}</a></li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 const AboutPage = () => {
   const m = useIsMobile();
@@ -124,13 +178,14 @@ const AboutPage = () => {
                 <h3 className="h-md">{dept.name}</h3>
                 <p>{dept.description}</p>
                 {dept.email && <a className="department-contact" href={"mailto:" + dept.email}>{dept.email}</a>}
+                <SharedTeamMembers department={dept.name} />
               </div>
               <ul className="department-members">
                 {dept.members.map(member => (
-                  <li className="member-card" key={member.name}>
+                  <li className="member-card" id={profileId(member)} key={member.email}>
                     <h4>{member.name}</h4>
                     {member.role && <p>{member.role}</p>}
-                    {member.email && <a href={"mailto:" + member.email}>{member.email}</a>}
+                    <a href={"mailto:" + member.email}>{member.email}</a>
                     {member.linkedin && <a href={"https://www.linkedin.com/in/" + member.linkedin + "/"} target="_blank" rel="noopener noreferrer" aria-label={member.name + " on LinkedIn"}>LinkedIn ↗</a>}
                   </li>
                 ))}

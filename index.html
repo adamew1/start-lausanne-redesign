@@ -430,6 +430,11 @@ h1, h2 { text-transform: uppercase; }
 .department-members { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); align-content: start; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .member-card { border: 1px solid var(--border); border-radius: var(--rad-md); padding: 18px; background: var(--bg-elev); }
 .member-card h4 { margin: 0; font-size: 17px; }
+.member-card[id] { scroll-margin-top: 96px; }
+.member-card:target { outline: 2px solid var(--accent); }
+.shared-team-members h4 { margin: 18px 0 6px; font-size: 14px; }
+.shared-team-members ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; }
+.shared-team-members a { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 .member-card p { margin: 4px 0 0; font-size: 14px; }
 .member-card a, .department-contact { display: block; width: fit-content; color: var(--accent); font-size: 14px; margin-top: 8px; overflow-wrap: anywhere; }
 .member-card a:hover, .department-contact:hover { text-decoration: underline; }
