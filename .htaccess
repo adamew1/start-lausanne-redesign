@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(events|about|partners|rtss|contest|workshops)/?$ index.html [END]

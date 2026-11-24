@@ -1,7 +1,6 @@
 // Road to START Summit — event detail page
 // Copy reproduced from starthelsinki.com/events/1, Helsinki swapped for Lausanne.
-const RTSS_STARTUP_LOGOS = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `src/images/rtss2026/startups/startup-${n}.jpg`);
-// Orbi registration link — the "Register Now" button does nothing until this is filled in.
+const RTSS_STARTUP_LOGOS = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `/src/images/rtss2026/startups/startup-${n}.jpg`);
 const RTSS_REGISTER_URL = "https://orbi.io/l/YZdJIn0dme19vUZQ";
 
 // Continuous logo strip: arrows step one logo and pause it, scrolling resumes shortly after the last click.
@@ -49,7 +48,7 @@ function StartupLogoCarousel({ logos, speed = 40, resumeDelay = 1500 }) {
   const arrow = (dir) => (
     <button type="button" aria-label={dir < 0 ? "Previous startups" : "Next startups"} onClick={() => move(dir)} style={{
       position: "absolute", top: "50%", [dir < 0 ? "left" : "right"]: 0, transform: "translateY(-50%)", zIndex: 2,
-      width: m ? 32 : 40, height: m ? 32 : 40, borderRadius: 999, border: "1px solid var(--border)", background: "rgba(8,8,10,0.75)",
+      width: m ? 32 : 40, height: m ? 32 : 40, borderRadius: 999, border: "1px solid var(--border)", background: "rgba(0,30,98,0.75)",
       color: "#fff", fontSize: 22, lineHeight: 1, cursor: "pointer", display: "grid", placeItems: "center"
     }}>{dir < 0 ? "‹" : "›"}</button>
   );
@@ -80,55 +79,56 @@ const RtssPage = () => {
   const base = EVENTS.find(e => e.id === "rtss");
   const event = {
     ...base,
+    registrationUrl: RTSS_REGISTER_URL,
     media: [
       {
         type: "photo",
-        src: "src/images/rtss2026/1.JPG",
+        src: "/src/images/rtss2026/1.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/2.JPG",
+        src: "/src/images/rtss2026/2.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/3.JPG",
+        src: "/src/images/rtss2026/3.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/4.JPG",
+        src: "/src/images/rtss2026/4.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/6.JPG",
+        src: "/src/images/rtss2026/6.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/7.JPG",
+        src: "/src/images/rtss2026/7.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/8.JPG",
+        src: "/src/images/rtss2026/8.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/9.JPG",
+        src: "/src/images/rtss2026/9.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/10.JPG",
+        src: "/src/images/rtss2026/10.JPG",
         alt: "Road to START Summit event"
       },
       {
         type: "photo",
-        src: "src/images/rtss2026/5.JPG",
+        src: "/src/images/rtss2026/5.JPG",
         alt: "Road to START Summit event"
       },
     ],
@@ -145,13 +145,6 @@ const RtssPage = () => {
       <div style={{ width: 0, minWidth: "100%" }}>
         <DetailHeading>Participating Startups</DetailHeading>
         <StartupLogoCarousel logos={RTSS_STARTUP_LOGOS} />
-      </div>
-      <div>
-        <DetailHeading>Join the Adventure</DetailHeading>
-        <p style={{ color: "var(--text-dim)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
-          Want to be part of the Road to START Summit? Seats are limited — save yours now by registering below.
-        </p>
-        <Btn accent href={RTSS_REGISTER_URL}>Register Now</Btn>
       </div>
     </EventDetailShell>
   );

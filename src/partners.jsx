@@ -6,7 +6,7 @@ const PartnersPage = () => {
     { icon: "target", title: "Access Top Talent", d: "Get direct access to Lausanne's most driven and talented student entrepreneurs." },
     { icon: "rocket", title: "Innovation Pipeline", d: "Stay close to fresh ideas and be the first to spot promising startups and talent." },
     { icon: "people", title: "Brand Visibility", d: "Showcase your brand to a highly engaged community of students and young founders." },
-    { icon: "building", title: "Global Network", d: "Connect with the international START Network spanning 22 cities and 17 countries." },
+    { icon: "building", title: "Global Network", d: "Connect with the international START Network spanning 23 cities and 17 countries." },
   ];
 
   return (
@@ -64,10 +64,10 @@ const PartnersPage = () => {
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
             <Btn primary href="mailto:partnerships@startlausanne.ch?subject=Partnership%20inquiry">✉ Contact Partnerships</Btn>
-            <Btn onClick={() => window.__setRoute("about")}>Learn About Us</Btn>
+            <Btn href="/about">Learn About Us</Btn>
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 28, flexWrap: "wrap", color: "var(--text-dim)", fontSize: 14 }}>
-            <a href="mailto:info@startlausanne.ch" style={{ color: "inherit" }}>✉ info@startlausanne.ch</a>
+            <a href="mailto:president@startlausanne.ch">Henrik Gruber · president@startlausanne.ch</a>
             <a href="mailto:partnerships@startlausanne.ch" style={{ color: "inherit" }}>✉ partnerships@startlausanne.ch</a>
           </div>
         </div>

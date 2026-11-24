@@ -1,4 +1,4 @@
-// Start Contest — event detail page
+// START Contest — event detail page
 // All facts sourced from the START Lausanne PDF fact sheet.
 const ContestPage = () => {
   const m = useIsMobile();
@@ -11,51 +11,51 @@ const ContestPage = () => {
     media: [
       {
         type: "photo",
-        src: "src/images/contest2026/2.jpg",
+        src: "/src/images/contest2026/2.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/3.jpg",
+        src: "/src/images/contest2026/3.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/1.jpg",
+        src: "/src/images/contest2026/1.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/6.jpg",
+        src: "/src/images/contest2026/6.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/7.jpg",
+        src: "/src/images/contest2026/7.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/8.jpg",
+        src: "/src/images/contest2026/8.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/9.jpg",
+        src: "/src/images/contest2026/9.jpg",
         alt: "Contest event"
       },
       {
         type: "photo",
-        src: "src/images/contest2026/10.jpg",
+        src: "/src/images/contest2026/10.jpg",
         alt: "Contest event"
       },
       {
         type: "video",
-        src: "src/images/contest2026/videos/1V.mp4",
+        src: "/src/images/contest2026/videos/1V.mp4",
       },
       {
         type: "video",
-        src: "src/images/contest2026/videos/2V.mp4",
+        src: "/src/images/contest2026/videos/2V.mp4",
         muted: true,
       },
     ],
@@ -99,7 +99,7 @@ const ContestPage = () => {
           {[
             { n: "CHF 40'000", l: "total prize pool", d: "Shared between the three laureates, plus additional benefits from our partners." },
             { n: "CHF 20'000", l: "top prize", d: "Awarded to the first-place team at the Grand Finale." },
-            { n: "3 teams", l: "walk away with prizes", d: "No strings attached, no equity taken." },
+            { n: "3 teams", l: "walk away with prizes", d: "No equity taken." },
           ].map((p, i) => (
             <div key={i} style={{ background: "var(--bg-elev)", border: "1px solid var(--border)", borderRadius: "var(--rad-md)", padding: 24 }}>
               <div className="h-lg text-gradient" style={{ marginBottom: 8 }}>{p.n}</div>

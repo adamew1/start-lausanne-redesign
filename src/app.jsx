@@ -1,47 +1,54 @@
-// App entry — router + global effects
+// Each public path also serves index.html when opened directly.
+const pages = {
+  "/": HomePage,
+  "/events": EventsPage,
+  "/about": AboutPage,
+  "/partners": PartnersPage,
+  "/rtss": RtssPage,
+  "/contest": ContestPage,
+  "/workshops": WorkshopsPage,
+};
+
+function currentPath() {
+  return window.location.pathname.replace(/\/+$/, "") || "/";
+}
+
 const App = () => {
-  const [route, setRoute] = React.useState(() => {
-    return localStorage.getItem("sl_route") || "home";
-  });
-
+  const [path, setPath] = React.useState(currentPath);
   React.useEffect(() => {
-    localStorage.setItem("sl_route", route);
+    const onPopState = () => setPath(currentPath());
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  function followLink(event) {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest("a[href]");
+    if (!link || link.target || link.origin !== location.origin || !pages[link.pathname] || link.search || link.hash) return;
+    event.preventDefault();
+    if (location.pathname !== link.pathname || location.search || location.hash) history.pushState(null, "", link.pathname);
+    setPath(link.pathname);
     window.scrollTo(0, 0);
-  }, [route]);
+  }
 
-  // expose for cross-component navigation
-  React.useEffect(() => { window.__setRoute = setRoute; }, []);
-
-  // cursor glow tracking
   React.useEffect(() => {
     const el = document.getElementById("cursorGlow");
-    if (!el) return;
-    const handle = (e) => {
-      el.style.left = e.clientX + "px";
-      el.style.top = e.clientY + "px";
+    const handle = (event) => {
+      el.style.left = event.clientX + "px";
+      el.style.top = event.clientY + "px";
     };
     window.addEventListener("mousemove", handle);
     return () => window.removeEventListener("mousemove", handle);
   }, []);
 
-  const pages = {
-    home: HomePage,
-    events: EventsPage,
-    about: AboutPage,
-    partners: PartnersPage,
-    rtss: RtssPage,
-    contest: ContestPage,
-  };
-  const Page = pages[route] || HomePage;
-
+  const Page = pages[path] || HomePage;
+  const route = path.slice(1) || "home";
   return (
-    <div className="page" data-screen-label={route}>
-      <Nav route={route} setRoute={setRoute} />
-      <div key={route} style={{ animation: "fadeIn 0.5s ease" }}>
-        <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }`}</style>
-        <Page />
-      </div>
-      <Footer setRoute={setRoute} />
+    <div className="page" data-screen-label={route} onClick={followLink}>
+      <Nav route={route} />
+      <main key={path}><Page /></main>
+      <Footer />
+      <PartnerBanner />
     </div>
   );
 };
