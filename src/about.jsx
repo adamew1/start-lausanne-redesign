@@ -3,15 +3,15 @@ const DEPARTMENTS = [
   {
     name: "Board", description: "Leading START Lausanne and representing the association.",
     members: [
-      { name: "Henrik Gruber", role: "President", email: "henrik.gruber@startlausanne.ch", linkedin: "gruber-henrik" },
-      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch", linkedin: "mattia-la-gennusa-162704372", alsoIn: "Intern" },
-      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch", linkedin: "cedric-mercado-308879217", alsoIn: "Finance" },
+      { name: "Henrik Gruber", role: "President", email: "henrik.gruber@startlausanne.ch" },
+      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch", alsoIn: "Intern" },
+      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch", alsoIn: "Finance" },
     ],
   },
   {
     name: "Contest", description: "Running the START Contest from applications to the grand finale.", email: "contest@startlausanne.ch",
     members: [
-      { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", linkedin: "yasmine-jouini-7a803828a", alsoIn: "Board" },
+      { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", alsoIn: "Board" },
       { name: "Gwenaëlle Gisiger", email: "gwenaelle.gisiger@startlausanne.ch" },
       { name: "Jiarui Xie", email: "jiarui.xie@startlausanne.ch" },
       { name: "Maelys Tavares", email: "maelys.tavares@startlausanne.ch" },
@@ -32,12 +32,12 @@ const DEPARTMENTS = [
     members: [
       { name: "Athish Sinnandy", role: "Co-head of Event", email: "athish.sinnandy@startlausanne.ch", alsoIn: "Board" },
       { name: "Omman Hashemi", role: "Co-head of Event", email: "omman.hashemi@startlausanne.ch", alsoIn: "Board" },
-      { name: "Dhia Eddine Naffati", email: "dhiaeddine.naffati@startlausanne.ch", linkedin: "dhia-naffati-01b95b336" },
+      { name: "Dhia Eddine Naffati", email: "dhiaeddine.naffati@startlausanne.ch" },
       { name: "Iuliia Eremina", email: "iuliia.eremina@startlausanne.ch" },
       { name: "Juan Esteban Hurtado Corzo", email: "esteban.hurtado@startlausanne.ch" },
       { name: "Lida Mikaelyan", email: "lida.mikaelyan@startlausanne.ch" },
       { name: "Max Dittmann", email: "max.dittmann@startlausanne.ch" },
-      { name: "Petra Végh", email: "petra.vegh@startlausanne.ch", linkedin: "petravegh" },
+      { name: "Petra Végh", email: "petra.vegh@startlausanne.ch" },
       { name: "Varsha Rasiah", email: "varsha.rasiah@startlausanne.ch" },
     ],
   },
@@ -186,7 +186,6 @@ const AboutPage = () => {
                     <h4>{member.name}</h4>
                     {member.role && <p>{member.role}</p>}
                     <a href={"mailto:" + member.email}>{member.email}</a>
-                    {member.linkedin && <a href={"https://www.linkedin.com/in/" + member.linkedin + "/"} target="_blank" rel="noopener noreferrer" aria-label={member.name + " on LinkedIn"}>LinkedIn ↗</a>}
                   </li>
                 ))}
               </ul>
