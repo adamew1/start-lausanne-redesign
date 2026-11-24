@@ -36,14 +36,12 @@ const HomePage = () => {
             <span style={{ display: "block", overflow: "hidden" }}>
               <span key={verbIdx} className="hero-word-cycle" style={{
                 display: "block",
-                fontFamily: "var(--display)", fontWeight: 900, textTransform: "uppercase",
                 fontSize: "clamp(1.5rem, 9vw, 9rem)", lineHeight: 0.95, letterSpacing: "-0.03em",
                 color: "rgba(255,255,255,0.9)"
               }}>{HERO_VERBS[verbIdx]}</span>
             </span>
             <span style={{
               display: "block",
-              fontFamily: "var(--display)", fontWeight: 900, textTransform: "uppercase",
               fontSize: "clamp(1.25rem, 7.4vw, 7.5rem)", lineHeight: 0.95, letterSpacing: "-0.03em",
               color: "#fff", marginTop: m ? 4 : 8
             }}>Entrepreneurs</span>

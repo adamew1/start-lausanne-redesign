@@ -7,7 +7,7 @@ const EventsPage = () => {
       <section style={{ position: "relative", paddingTop: 160, paddingBottom: 96, overflow: "hidden" }}>
         <GlowOrb bottom={-160} left={-160} size={700} color="var(--accent)" opacity={0.16} />
         <div className="container" style={{ position: "relative", textAlign: "center" }}>
-          <h1 style={{ fontFamily: "var(--display)", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(44px, 6vw, 96px)", color: "#fff", maxWidth: "16ch", margin: "0 auto" }}>Our Events</h1>
+          <h1 style={{ letterSpacing: "-0.02em", fontSize: "clamp(44px, 6vw, 96px)", color: "#fff", maxWidth: "16ch", margin: "0 auto" }}>Our Events</h1>
           <p className="lead" style={{ margin: "28px auto 0", textAlign: "center", maxWidth: "58ch", color: "var(--text-dim)" }}>
             Discover signature programs designed to accelerate your entrepreneurial journey.
           </p>

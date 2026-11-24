@@ -164,13 +164,14 @@ h1, h2 { text-transform: uppercase; }
 }
 
 /* ============ typography ============ */
+h1, .h-display, .h-xl {
+  font-family: var(--display); font-weight: 900;
+}
 .h-display {
-  font-family: var(--display); font-weight: 800;
   font-size: clamp(56px, 10vw, 180px); line-height: 0.90;
   letter-spacing: -0.045em; margin: 0;
 }
 .h-xl {
-  font-family: var(--display); font-weight: 800;
   font-size: clamp(40px, 6.4vw, 104px); line-height: 0.95;
   letter-spacing: -0.035em; margin: 0;
 }

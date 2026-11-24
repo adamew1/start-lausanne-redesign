@@ -122,7 +122,7 @@ const AboutPage = () => {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/src/images/about.jpeg)", backgroundSize: "cover", backgroundPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,30,98,0.35) 0%, rgba(0,30,98,0.7) 55%, rgba(0,30,98,0.96) 100%)" }} />
         <div className="container" style={{ position: "relative", zIndex: 2, paddingBottom: m ? 56 : 96 }}>
-          <h1 style={{ fontFamily: "var(--display)", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.03em", fontSize: m ? 54 : "clamp(70px, 10vw, 140px)", lineHeight: 0.95, color: "#fff", margin: 0 }}>About Us</h1>
+          <h1 style={{ letterSpacing: "-0.03em", fontSize: m ? 54 : "clamp(70px, 10vw, 140px)", lineHeight: 0.95, color: "#fff", margin: 0 }}>About Us</h1>
           <p className="lead" style={{ marginTop: 28, maxWidth: "60ch", color: "rgba(255,255,255,0.82)" }}>
             Connecting the next generation of entrepreneurs in Lausanne and beyond.
           </p>
