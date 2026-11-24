@@ -12,9 +12,9 @@ const DEPARTMENTS = [
     name: "Contest", description: "Running the START Contest from applications to the grand finale.", email: "contest@startlausanne.ch",
     members: [
       { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", linkedin: "yasmine-jouini-7a803828a", alsoIn: "Board" },
-      { name: "Gwenaëlle Gisiger", email: "gwenaelle.gisiger@startlausanne.ch", linkedin: "gwena%C3%ABlle-gisiger-8b54791b4" },
+      { name: "Gwenaëlle Gisiger", email: "gwenaelle.gisiger@startlausanne.ch" },
       { name: "Jiarui Xie", email: "jiarui.xie@startlausanne.ch" },
-      { name: "Maelys Tavares", email: "maelys.tavares@startlausanne.ch", linkedin: "ma%C3%ABlys-tavares-ab9836288" },
+      { name: "Maelys Tavares", email: "maelys.tavares@startlausanne.ch" },
       { name: "Rayhana Bentahir", email: "rayhana.bentahir@startlausanne.ch" },
       { name: "Tuna Hizarci", email: "tuna.hizarci@startlausanne.ch" },
       { name: "Yassine ElHachimi", email: "yassine.elhachimi@startlausanne.ch" },
@@ -24,7 +24,7 @@ const DEPARTMENTS = [
     name: "Coordination", description: "Managing communication between all departments, and keeping the whole association organized.", email: "coordination@startlausanne.ch",
     members: [
       { name: "Tariq Azzouz", role: "Head of Coordination", email: "tariq.azzouz@startlausanne.ch", alsoIn: "Board" },
-      { name: "Martina Peruzzo", email: "martina.peruzzo@startlausanne.ch", linkedin: "martinaperuzzo" },
+      { name: "Martina Peruzzo", email: "martina.peruzzo@startlausanne.ch" },
     ],
   },
   {
@@ -45,14 +45,14 @@ const DEPARTMENTS = [
     name: "Finance", description: "Managing the association’s budget, resources and financial sustainability.", email: "partnerships@startlausanne.ch",
     members: [
       { name: "Aurelia Marchese", role: "Head of Finance", email: "aurelia.marchese@startlausanne.ch", alsoIn: "Board" },
-      { name: "Caio Barretta Ferreira", email: "caio.barretta.ferreira@startlausanne.ch", linkedin: "caio-barretta-ferreira" },
-      { name: "Gabin Picot", email: "gabin.picot@startlausanne.ch", linkedin: "gabin-picot-552484393" },
-      { name: "Ghalia Bennani", email: "ghalia.bennani@startlausanne.ch", linkedin: "ghalia-bennani" },
+      { name: "Caio Barretta Ferreira", email: "caio.barretta.ferreira@startlausanne.ch" },
+      { name: "Gabin Picot", email: "gabin.picot@startlausanne.ch" },
+      { name: "Ghalia Bennani", email: "ghalia.bennani@startlausanne.ch" },
       { name: "Hamza Bichiou", email: "hamza.bichiou@startlausanne.ch" },
       { name: "Lena Sieber", email: "lena.sieber@startlausanne.ch" },
-      { name: "Louis Payer", email: "louis.payer@startlausanne.ch", linkedin: "louispayer" },
+      { name: "Louis Payer", email: "louis.payer@startlausanne.ch" },
       { name: "Pablo Suarez", email: "pablo.suarez@startlausanne.ch" },
-      { name: "Stephan Ferrieri", email: "stephan.ferrieri@startlausanne.ch", linkedin: "stephan-ferrieri-21b7a5378" },
+      { name: "Stephan Ferrieri", email: "stephan.ferrieri@startlausanne.ch" },
     ],
   },
   {
@@ -61,15 +61,15 @@ const DEPARTMENTS = [
       { name: "Elena Bachos", role: "Head of Marketing", email: "elena.bachos@startlausanne.ch", alsoIn: "Board" },
       { name: "Amélie Ruggeri", email: "amelie.ruggeri@startlausanne.ch" },
       { name: "Lina Boubeker", email: "lina.boubeker@startlausanne.ch" },
-      { name: "Ludivine Berger", email: "ludivine.berger@startlausanne.ch", linkedin: "ludivineberger" },
-      { name: "Rokas Bertasius", email: "rokas.bertasius@startlausanne.ch", linkedin: "rokasbertasius" },
+      { name: "Ludivine Berger", email: "ludivine.berger@startlausanne.ch" },
+      { name: "Rokas Bertasius", email: "rokas.bertasius@startlausanne.ch" },
     ],
   },
   {
     name: "IT", description: "Building the website, automations and internal tools that support our teams.", email: "it@startlausanne.ch",
     members: [
       { name: "Rim Abkari", role: "Head of IT", email: "rim.abkari@startlausanne.ch", alsoIn: "Board" },
-      { name: "Adam Lahchimi", email: "adam.lahchimi@startlausanne.ch", linkedin: "adam-lahchimi-206a2a2b1" },
+      { name: "Adam Lahchimi", email: "adam.lahchimi@startlausanne.ch" },
       { name: "Ayman Bouzaid", email: "ayman.bouzaid@startlausanne.ch" },
       { name: "Chema Laadhar", email: "chema.laadhar@startlausanne.ch" },
       { name: "Maxime Ramponi", email: "maxime.ramponi@startlausanne.ch" },
@@ -80,7 +80,7 @@ const DEPARTMENTS = [
     members: [
       { name: "Arianna Nepomuceno", email: "arianna.nepomuceno@startlausanne.ch" },
       { name: "Giacomo Moserle", email: "giacomo.moserle@startlausanne.ch" },
-      { name: "Irene Petochi", email: "irene.petochi@startlausanne.ch", linkedin: "irene-petochi-5b1b3334b" },
+      { name: "Irene Petochi", email: "irene.petochi@startlausanne.ch" },
     ],
   },
 ];
