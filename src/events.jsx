@@ -24,14 +24,14 @@ const EventsPage = () => {
                     <Img src={e.image} ratio="4/3" position={e.imagePosition} />
                     <div style={{
                       position: "absolute", top: 14, left: 14, width: 44, height: 44, borderRadius: 12,
-                      background: "rgba(8,8,10,0.72)", backdropFilter: "blur(10px)",
+                      background: "rgba(0,30,98,0.72)", backdropFilter: "blur(10px)",
                       display: "grid", placeItems: "center", fontSize: 20
                     }}>{e.icon}</div>
                     {!e.clickable && (
                       <div style={{
                         position: "absolute", top: 18, right: 14, color: "#fff",
                         fontFamily: "var(--body)", fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.14em",
-                        background: "rgba(8,8,10,0.72)", backdropFilter: "blur(10px)",
+                        background: "rgba(0,30,98,0.72)", backdropFilter: "blur(10px)",
                         padding: "6px 12px", borderRadius: 999, border: "1px solid rgba(255,255,255,0.15)"
                       }}>Coming up</div>
                     )}
@@ -41,7 +41,7 @@ const EventsPage = () => {
                     <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 14, lineHeight: 1.65, flex: 1 }}>{e.shortDescription}</p>
                     <div style={{ marginTop: 18, fontFamily: "var(--body)", fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.14em", color: "#fff" }}>{e.details.duration} · {e.details.location}</div>
                     {e.clickable && (
-                      <div style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--body)", fontSize: 11, color: "#fff", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 700 }}>Learn more →</div>
+                      <div style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--body)", fontSize: 11, color: "#fff", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 700 }}>See more →</div>
                     )}
                   </div>
                 </div>
@@ -50,7 +50,7 @@ const EventsPage = () => {
               return (
                 <Reveal key={e.id} delay={i * 80} style={centerLast ? { gridColumn: "2 / 3" } : undefined}>
                   {e.clickable
-                    ? <a onClick={() => window.__setRoute(e.id)} style={{ display: "block", height: "100%" }}>{card}</a>
+                    ? <a href={"/" + e.id} style={{ display: "block", height: "100%" }}>{card}</a>
                     : <div style={{ height: "100%" }}>{card}</div>}
                 </Reveal>
               );
@@ -62,7 +62,7 @@ const EventsPage = () => {
       <section className="section" style={{ textAlign: "center" }}>
         <div className="container">
           <h2 style={{ fontFamily: "var(--display)", fontWeight: 800, letterSpacing: "-0.01em", fontSize: "clamp(28px, 3.6vw, 52px)", color: "#fff", margin: 0 }}>
-            Ready to Join an Event?
+            Want to Join all Events?
           </h2>
           <p className="lead" style={{ margin: "24px auto 0", textAlign: "center", maxWidth: "56ch", color: "var(--text-dim)" }}>
             Become a START Lausanne member to get exclusive access to all our events and programs.
@@ -76,3 +76,22 @@ const EventsPage = () => {
   );
 };
 window.EventsPage = EventsPage;
+
+const WorkshopsPage = () => {
+  const base = EVENTS.find(event => event.id === "workshops");
+  const event = {
+    ...base,
+    fullDescription: "During Global Entrepreneurship Week, students in Lausanne can explore how founders develop an idea and find collaborators. Workshops and conversations with local entrepreneurs are part of the week’s programme.",
+    highlights: ["Hands-on workshops", "Conversations with local founders", "Networking with students and entrepreneurs"],
+  };
+  return (
+    <EventDetailShell event={event}>
+      <div className="card">
+        <DetailHeading>From the 2026 programme</DetailHeading>
+        <p className="lead">On 18 November, START Lausanne joined Génération Entrepreneurs at UNIL for an evening of founder stories, practical advice and networking.</p>
+        <Btn accent href="https://www.linkedin.com/posts/generationentrepreneurs_generationentrepreneurs-entrepreneuriat-lausanne-activity-7528146030534729729-15Ed">Event details</Btn>
+      </div>
+    </EventDetailShell>
+  );
+};
+window.WorkshopsPage = WorkshopsPage;

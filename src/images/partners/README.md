@@ -1,16 +1,17 @@
 # Partner logos
 
-The Partners page uses local assets so logos do not depend on third-party image hosting.
+Home and Partners share the entries in [sponsors.jsx](../../sponsors.jsx). Each card links to the organisation’s homepage.
 
-| Partner | File | Source |
+| Organisation | Local artwork | Source |
 | --- | --- | --- |
-| UNIL | `unil-university.svg` | [Official UNIL logo](https://www.unil.ch/modules/refonte-assets/images/unil-logo.svg), used in the header of [the university website](https://www.unil.ch/). |
-| EPFL | `epfl.png` | Existing logo from the repository. |
-| HUB de l'UNIL | `unil_hub.png` | Existing logo from the repository. |
-| EHL Innovation Hub | `ehl-innovation-hub.svg` | Header logo from [EHL Innovation Hub](https://innovationhub.ehl.edu/). |
-| VentureLab | `venturelab.svg` | [Official Venturelab logo](https://www.venturelab.swiss/demandit/files/M_BB941CC4DCEF687AD98/dms/File/venturelab_Logo_pos.svg). |
-| InnovationTime | `innovationtime.png` | [Official Innovation Time Lausanne logo](https://itlausanne.ch/assets/logo-it-CI6DnbjQ.png), used on [its website](https://itlausanne.ch/). |
+| HEC Lausanne | `hec-lausanne.png` | Supplied with the website feedback |
+| EPFL | `epfl.png` | Existing association artwork |
+| HUB Entrepreneuriat et Innovation | `hub.png` | Updated logo supplied with the website feedback |
+| EHL Innovation Hub | `ehl-innovation-hub.svg` | [EHL Innovation Hub](https://innovationhub.ehl.edu/), using its navy variant for light backgrounds |
+| Venturelab | `venturelab.svg` | [Venturelab](https://www.venturelab.swiss/demandit/files/M_BB941CC4DCEF687AD98/dms/File/venturelab_Logo_pos.svg) |
+| Génération Entrepreneurs | `generation-entrepreneurs.png` | Supplied white logo for dark backgrounds |
+| QoQa, Walder Wyss, GENILEM, Infomaniak, Forum EPFL | `qoqa.png`, `walderwyss-logo.png`, `genilem.png`, `infomaniak.webp`, `forum-epfl.png` | Existing association artwork |
+| BluePoint Distribution | `bluepoint.svg` | [BluePoint Distribution](https://bluepointdistribution.com/) |
+| FOCUSWATER | `focuswater.svg` | [FOCUSWATER](https://focuswater.ch/wp-content/themes/balanced-flow/dist/assets/logo-70a975f0.svg) |
 
-The four additional logos were retrieved on 2026-10-25. The EHL SVG retains the original paths; SVG attribute/tag casing was normalized for a standalone file and the white fill was changed to EHL's navy (`#0f1b38`) for the white cards. The UNIL SVG also retains its original paths, with the fill changed to the official blue (`#06f`) used in [UNIL's blue logo](https://cdn.unil.ch/common/img/unil-logo-blue-2025.svg). The other assets are unchanged.
-
-The existing `unil.png` identifies HEC Lausanne. It is kept in the repository; the Partners page uses the university logo to represent UNIL itself.
+START Lausanne acknowledged BluePoint Distribution and FOCUSWATER as event sponsors in its [2024–25 START Contest finale recap](https://www.linkedin.com/posts/start-lausanne_startcontest-entrepreneurship-innovation-activity-7329060499533320192-ZGOA).

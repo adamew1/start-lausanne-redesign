@@ -14,19 +14,10 @@ function useIsMobile(breakpoint = 768) {
   return mobile;
 }
 
-// ============ Logo mark (recreated START-network style badge, not Helsinki's actual file) ============
-function LogoMark({ size = 30 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className="nav-logo-mark" aria-hidden="true">
-      <circle cx="32" cy="32" r="29" fill="var(--bg-dark)" stroke="var(--accent)" strokeWidth="3" />
-      <path d="M19 41 L32 17 L45 41" stroke="var(--accent)" strokeWidth="4.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 // ============ Navigation ============
-function Nav({ route, setRoute }) {
+function Nav({ route }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => setMobileOpen(false), [route]);
   const links = [
     { id: "home", label: "Home" },
     { id: "contest", label: "Contest" },
@@ -34,31 +25,26 @@ function Nav({ route, setRoute }) {
     { id: "about", label: "About" },
     { id: "partners", label: "Partners" },
   ];
-  const activeIds = { home: "home", events: "events", rtss: "events", contest: "contest", about: "about", partners: "partners" };
+  const activeId = ["rtss", "workshops"].includes(route) ? "events" : route;
   return (
     <nav className={"nav " + (mobileOpen ? "mobile-open" : "")}>
       <div className="nav-inner">
-        <div className="nav-logo" onClick={() => { setRoute("home"); setMobileOpen(false); }}>
-          <LogoMark />
-          <div className="nav-logo-divider" />
-          <div className="nav-logo-word">
-            <b>START</b>
-            <span>LAUSANNE</span>
-          </div>
-        </div>
-        <div className="nav-links">
+        <a className="nav-logo" href="/" aria-label="START Lausanne home" onClick={() => setMobileOpen(false)}>
+          <img src="/src/images/start-lausanne-white.png" width="241" height="90" alt="START Lausanne" />
+        </a>
+        <div className="nav-links" id="main-navigation">
           {links.map(l => (
-            <div key={l.id}
-                 className={"nav-link " + (activeIds[route] === l.id ? "active" : "")}
-                 onClick={() => { setRoute(l.id); setMobileOpen(false); }}>
+            <a key={l.id} href={l.id === "home" ? "/" : "/" + l.id} aria-current={route === l.id ? "page" : undefined}
+                 className={"nav-link " + (activeId === l.id ? "active" : "")}
+                 onClick={() => setMobileOpen(false)}>
               {l.label}
-            </div>
+            </a>
           ))}
         </div>
         <button className="nav-cta" onClick={() => window.open(APPLY_URL, "_blank")}>
           Apply now ↗
         </button>
-        <button className="nav-burger" onClick={() => setMobileOpen(v => !v)}>
+        <button className="nav-burger" aria-expanded={mobileOpen} aria-controls="main-navigation" onClick={() => setMobileOpen(v => !v)}>
           {mobileOpen ? "Close" : "Menu"}
         </button>
       </div>
@@ -86,7 +72,9 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h4>Contact</h4>
-            <a href="mailto:info@startlausanne.ch">info@startlausanne.ch</a>
+            <div className="footer-contact-label">General enquiries · Henrik Gruber, President</div>
+            <a href="mailto:president@startlausanne.ch">president@startlausanne.ch</a>
+            <div className="footer-contact-label">Sponsorship enquiries</div>
             <a href="mailto:partnerships@startlausanne.ch">partnerships@startlausanne.ch</a>
           </div>
         </div>
@@ -126,7 +114,7 @@ function Tag({ children, accent }) {
 function Btn({ children, primary, accent, onClick, href }) {
   const cls = "btn " + (primary ? "btn-primary " : "") + (accent ? "btn-outline-accent " : "");
   const content = <>{children}<span className="arrow" /></>;
-  if (href) return <a className={cls} href={href} target="_blank" rel="noopener">{content}</a>;
+  if (href) return <a className={cls} href={href} target={/^https?:/.test(href) ? "_blank" : undefined} rel={/^https?:/.test(href) ? "noopener" : undefined}>{content}</a>;
   return <button className={cls} onClick={onClick}>{content}</button>;
 }
 
@@ -226,7 +214,7 @@ function Img({ src, label, style, ratio = "4/3", position = "center" }) {
           position: "absolute", left: 16, bottom: 16, zIndex: 2,
           fontFamily: "var(--body)", fontSize: 11, color: "#fff", fontWeight: 600,
           textTransform: "uppercase", letterSpacing: "0.12em",
-          background: "rgba(8,8,10,0.86)", backdropFilter: "blur(10px)",
+          background: "rgba(0,30,98,0.86)", backdropFilter: "blur(10px)",
           padding: "7px 12px", borderRadius: 999, border: "1px solid rgba(255,255,255,0.18)"
         }}>{label}</div>
       )}
@@ -295,28 +283,6 @@ function DetailHeading({ children, size = "md" }) {
       color: "#fff",
       margin: size === "sm" ? "0 0 14px" : "0 0 24px"
     }}>{children}</h3>
-  );
-}
-
-function DetailVideoBlock({ video }) {
-  if (video) {
-    return (
-      <video controls style={{ width: "100%", aspectRatio: "16/9", borderRadius: "var(--rad-md)", display: "block", background: "#000" }}>
-        <source src={video} />
-      </video>
-    );
-  }
-  return (
-    <div style={{
-      position: "relative", aspectRatio: "16/9", borderRadius: "var(--rad-md)",
-      background: "var(--bg-elev)", border: "1px solid var(--border)",
-      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14
-    }}>
-      <div style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: 0, height: 0, borderTop: "10px solid transparent", borderBottom: "10px solid transparent", borderLeft: "16px solid var(--accent)", marginLeft: 4 }} />
-      </div>
-      <span style={{ color: "var(--text-mute)", fontFamily: "var(--body)", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.14em" }}>Video coming soon</span>
-    </div>
   );
 }
 
@@ -427,11 +393,10 @@ function EventDetailShell({ event, children }) {
     <>
       <section style={{ position: "relative", paddingTop: 160, paddingBottom: 80, overflow: "hidden" }}>
         <GlowOrb top="-20%" right="-10%" size={700} color="var(--accent)" opacity={0.18} />
-        <GlowOrb bottom="-30%" left="-10%" size={600} color="var(--secondary)" opacity={0.14} />
+        <GlowOrb bottom="-30%" left="-10%" size={600} color="var(--bg-elev)" opacity={0.14} />
         <div className="container" style={{ position: "relative" }}>
           {event.id !== "contest" && (
-            <div
-              onClick={() => window.__setRoute("events")}
+            <a href="/events"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -444,7 +409,7 @@ function EventDetailShell({ event, children }) {
               }}
             >
               ← Back to Events
-            </div>
+            </a>
           )}
           <h1 className="h-display text-gradient" style={{ maxWidth: "18ch" }}>{event.title}</h1>
           <p className="lead" style={{ marginTop: 32, maxWidth: "60ch" }}>{event.shortDescription}</p>
@@ -452,6 +417,7 @@ function EventDetailShell({ event, children }) {
             <DetailFactPill icon="calendar">{event.details.date}</DetailFactPill>
             <DetailFactPill icon="clock">{event.details.duration}</DetailFactPill>
             <DetailFactPill icon="pin">{event.details.location}</DetailFactPill>
+            {event.registrationUrl && <Btn primary href={event.registrationUrl}>{event.id === "contest" ? "Register for Contest" : "Register Now"}</Btn>}
           </div>
           {event.id === "contest" && (
             <div
@@ -465,10 +431,6 @@ function EventDetailShell({ event, children }) {
               <Btn primary href={event.infoSessionUrl}>
                 Info Session
               </Btn>
-
-              <Btn accent href={event.registrationUrl}>
-                Register for Contest
-              </Btn>
             </div>
           )}
         </div>
@@ -477,20 +439,18 @@ function EventDetailShell({ event, children }) {
       <section className="section" style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "2fr 1fr", gap: m ? 48 : 64, alignItems: "start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
-            {event.id === "contest" && (
-              <div>
-                <DetailVideoBlock video={event.introVideo} />
-              </div>
-            )}
+            {event.introVideo && <video controls src={event.introVideo} style={{ width: "100%", borderRadius: "var(--rad-md)" }} />}
             <div>
               <DetailHeading>About This Event</DetailHeading>
               <p style={{ color: "var(--text-dim)", fontSize: 16, lineHeight: 1.7 }}>{event.fullDescription}</p>
             </div>
 
-            <div>
-              <DetailHeading>Event Highlights</DetailHeading>
-              <EventMediaGallery media={event.media || []} />
-            </div>
+            {event.media?.length > 0 && (
+              <div>
+                <DetailHeading>Event Highlights</DetailHeading>
+                <EventMediaGallery media={event.media} />
+              </div>
+            )}
 
             {children}
           </div>
@@ -510,11 +470,6 @@ function EventDetailShell({ event, children }) {
               </div>
             )}
 
-            <div className="card" style={{ padding: 18, textAlign: "center", borderColor: "var(--accent)" }}>
-              <DetailHeading size="sm">Interested?</DetailHeading>
-              <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 16 }}>Join START Lausanne to participate in this event.</p>
-              <Btn accent href={APPLY_URL}>Apply Now</Btn>
-            </div>
           </div>
         </div>
       </section>
@@ -528,32 +483,31 @@ const EVENTS = [
     id: "rtss", clickable: true, icon: "🚀",
     title: "Road to START Summit",
     shortDescription: "Annual pitch competition connecting early‑stage startups to investors and opportunities.",
-    image: "src/images/summit.jpeg",
-    imagePosition: "center 88%",
+    image: "/src/images/rtss2026/5.1.jpg",
     details: { date: "10 December 2026", duration: "Single day", location: "UNIL · Synathlon 1216" },
   },
   {
     id: "contest", clickable: true, icon: "🏆",
-    title: "Start Contest",
+    title: "START Contest",
     shortDescription: "A three-month startup competition — develop your idea through elimination stages and compete for CHF 40'000 in prizes.",
-    image: "src/images/contest.jpeg",
+    image: "/src/images/contest.jpeg",
     details: { date: "March – May", duration: "3 months", location: "Lausanne · UNIL & EPFL" },
   },
   {
     id: "hackathon", clickable: false, icon: "⚡",
-    title: "Start Hackathon",
+    title: "START Hackathon",
     shortDescription: "An intensive two-day sprint where student teams build innovative solutions to real-world challenges set by our partners.",
-    image: "src/images/hack.webp",
+    image: "/src/images/hack.webp",
     details: { date: "TBD", duration: "2 days", location: "Lausanne" },
   },
   {
-    id: "gew", clickable: false, icon: "🌍",
-    title: "Start GEW",
+    id: "workshops", clickable: true, icon: "🌍",
+    title: "Workshops",
     shortDescription: "A week of workshops and conferences dedicated to entrepreneurship and skills development, part of Global Entrepreneurship Week.",
-    image: "src/images/gew.jpeg",
+    image: "/src/images/gew.jpeg",
     details: { date: "November", duration: "1 week", location: "Lausanne" },
   },
 ];
 
 // Expose globals
-Object.assign(window, { Nav, Footer, LogoMark, Eyebrow, GradBar, GlowOrb, Tag, Btn, Reveal, Counter, SectionLabel, Marquee, MarqueeVertical, Img, useIsMobile, APPLY_URL, EVENTS, EventDetailShell, DetailHeading, DetailCheckList, DetailFactPill, DetailIcon });
+Object.assign(window, { Nav, Footer, Eyebrow, GradBar, GlowOrb, Tag, Btn, Reveal, Counter, SectionLabel, Marquee, MarqueeVertical, Img, useIsMobile, APPLY_URL, EVENTS, EventDetailShell, DetailHeading, DetailCheckList, DetailFactPill, DetailIcon });
