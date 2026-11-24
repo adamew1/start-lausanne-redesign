@@ -7,7 +7,7 @@ const ContestPage = () => {
     ...base,
     introVideo: null,
     infoSessionUrl: "https://linktr.ee/STARTcontest",
-    registrationUrl: null,
+    registrationUrl: "mailto:contest@startlausanne.ch?subject=START%20Contest%20registration",
     media: [
       {
         type: "photo",

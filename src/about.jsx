@@ -1,17 +1,16 @@
-// A member has one profile. alsoIn records a second team assignment.
 const DEPARTMENTS = [
   {
-    name: "Board", description: "Leading START Lausanne and representing the association.",
+    name: "Committee", description: "Leading START Lausanne and representing the association.",
     members: [
       { name: "Henrik Gruber", role: "President", email: "henrik.gruber@startlausanne.ch" },
-      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch", alsoIn: "Intern" },
-      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch", alsoIn: "Finance" },
+      { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch" },
+      { name: "Cedric Mercado", role: "Treasurer", email: "cedric.mercado@startlausanne.ch" },
     ],
   },
   {
     name: "Contest", description: "Running the START Contest from applications to the grand finale.", email: "contest@startlausanne.ch",
     members: [
-      { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", alsoIn: "Board" },
+      { name: "Yasmine Jouini", role: "Head of Contest", email: "yasmine.jouini@startlausanne.ch", onBoard: true },
       { name: "Gwenaëlle Gisiger", email: "gwenaelle.gisiger@startlausanne.ch" },
       { name: "Jiarui Xie", email: "jiarui.xie@startlausanne.ch" },
       { name: "Maelys Tavares", email: "maelys.tavares@startlausanne.ch" },
@@ -23,15 +22,15 @@ const DEPARTMENTS = [
   {
     name: "Coordination", description: "Managing communication between all departments, and keeping the whole association organized.", email: "coordination@startlausanne.ch",
     members: [
-      { name: "Tariq Azzouz", role: "Head of Coordination", email: "tariq.azzouz@startlausanne.ch", alsoIn: "Board" },
+      { name: "Tariq Azzouz", role: "Head of Coordination", email: "tariq.azzouz@startlausanne.ch", onBoard: true },
       { name: "Martina Peruzzo", email: "martina.peruzzo@startlausanne.ch" },
     ],
   },
   {
     name: "Event", description: "Planning the events that bring our community together, from workshops to the hackathon.", email: "events@startlausanne.ch",
     members: [
-      { name: "Athish Sinnandy", role: "Co-head of Event", email: "athish.sinnandy@startlausanne.ch", alsoIn: "Board" },
-      { name: "Omman Hashemi", role: "Co-head of Event", email: "omman.hashemi@startlausanne.ch", alsoIn: "Board" },
+      { name: "Athish Sinnandy", role: "Co-head of Event", email: "athish.sinnandy@startlausanne.ch", onBoard: true },
+      { name: "Omman Hashemi", role: "Co-head of Event", email: "omman.hashemi@startlausanne.ch", onBoard: true },
       { name: "Dhia Eddine Naffati", email: "dhiaeddine.naffati@startlausanne.ch" },
       { name: "Iuliia Eremina", email: "iuliia.eremina@startlausanne.ch" },
       { name: "Juan Esteban Hurtado Corzo", email: "esteban.hurtado@startlausanne.ch" },
@@ -44,7 +43,7 @@ const DEPARTMENTS = [
   {
     name: "Finance", description: "Managing the association’s budget, resources and financial sustainability.", email: "partnerships@startlausanne.ch",
     members: [
-      { name: "Aurelia Marchese", role: "Head of Finance", email: "aurelia.marchese@startlausanne.ch", alsoIn: "Board" },
+      { name: "Aurelia Marchese", role: "Head of Finance", email: "aurelia.marchese@startlausanne.ch", onBoard: true },
       { name: "Caio Barretta Ferreira", email: "caio.barretta.ferreira@startlausanne.ch" },
       { name: "Gabin Picot", email: "gabin.picot@startlausanne.ch" },
       { name: "Ghalia Bennani", email: "ghalia.bennani@startlausanne.ch" },
@@ -58,7 +57,7 @@ const DEPARTMENTS = [
   {
     name: "Marketing", description: "Looking after our brand and creating the campaigns that introduce students to START.", email: "marketing@startlausanne.ch",
     members: [
-      { name: "Elena Bachos", role: "Head of Marketing", email: "elena.bachos@startlausanne.ch", alsoIn: "Board" },
+      { name: "Elena Bachos", role: "Head of Marketing", email: "elena.bachos@startlausanne.ch", onBoard: true },
       { name: "Amélie Ruggeri", email: "amelie.ruggeri@startlausanne.ch" },
       { name: "Lina Boubeker", email: "lina.boubeker@startlausanne.ch" },
       { name: "Ludivine Berger", email: "ludivine.berger@startlausanne.ch" },
@@ -68,7 +67,7 @@ const DEPARTMENTS = [
   {
     name: "IT", description: "Building the website, automations and internal tools that support our teams.", email: "it@startlausanne.ch",
     members: [
-      { name: "Rim Abkari", role: "Head of IT", email: "rim.abkari@startlausanne.ch", alsoIn: "Board" },
+      { name: "Rim Abkari", role: "Head of IT", email: "rim.abkari@startlausanne.ch", onBoard: true },
       { name: "Adam Lahchimi", email: "adam.lahchimi@startlausanne.ch" },
       { name: "Ayman Bouzaid", email: "ayman.bouzaid@startlausanne.ch" },
       { name: "Chema Laadhar", email: "chema.laadhar@startlausanne.ch" },
@@ -85,26 +84,12 @@ const DEPARTMENTS = [
   },
 ];
 
-const sharedMembers = DEPARTMENTS.flatMap(dept => dept.members.filter(member => member.alsoIn));
-
-function profileId(member) {
-  return "member-" + member.email.split("@")[0];
-}
-
-function SharedTeamMembers({ department }) {
-  const members = sharedMembers.filter(member => member.alsoIn === department);
-  if (!members.length) return null;
-  return (
-    <div className="shared-team-members">
-      <h4>{department === "Board" ? "Department heads on the board" : "Committee member"}</h4>
-      <ul>
-        {members.map(member => (
-          <li key={member.email}><a href={"#" + profileId(member)}>{member.name}</a></li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+const [committee, ...teams] = DEPARTMENTS;
+const board = {
+  name: "Board",
+  description: "The department heads who coordinate the work of our teams.",
+  members: teams.flatMap(team => team.members.filter(member => member.onBoard)),
+};
 
 const AboutPage = () => {
   const m = useIsMobile();
@@ -172,22 +157,24 @@ const AboutPage = () => {
       <section className="section" aria-labelledby="team-heading">
         <div className="container">
           <h2 className="h-lg" id="team-heading" style={{ marginBottom: 40 }}>Meet the Team</h2>
-          {DEPARTMENTS.map(dept => (
+          {[committee, board, ...teams].map(dept => (
             <section className="department" key={dept.name} aria-label={dept.name}>
               <div>
                 <h3 className="h-md">{dept.name}</h3>
                 <p>{dept.description}</p>
                 {dept.email && <a className="department-contact" href={"mailto:" + dept.email}>{dept.email}</a>}
-                <SharedTeamMembers department={dept.name} />
               </div>
               <ul className="department-members">
-                {dept.members.map(member => (
-                  <li className="member-card" id={profileId(member)} key={member.email}>
-                    <h4>{member.name}</h4>
-                    {member.role && <p>{member.role}</p>}
-                    <a href={"mailto:" + member.email}>{member.email}</a>
-                  </li>
-                ))}
+                {dept.members.map(member => {
+                  const [username, domain] = member.email.split("@");
+                  return (
+                    <li className="member-card" id={dept === board ? undefined : "member-" + username} key={member.email}>
+                      <h4>{member.name}</h4>
+                      {member.role && <p>{member.role}</p>}
+                      <a href={"mailto:" + member.email}>{username}<wbr />@{domain}</a>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           ))}

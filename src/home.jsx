@@ -91,10 +91,8 @@ const HomePage = () => {
               <a className="u-link" href="https://www.startglobal.org/" target="_blank" rel="noopener">Visit START Global ↗</a>
             </div>
           </div>
-          <ul className="network-cities" aria-label="START chapter cities">
-            {NETWORK_CITIES.map(city => <li key={city}>{city}</li>)}
-          </ul>
         </div>
+        <Marquee items={NETWORK_CITIES} label="START chapter cities" speed={45} />
       </section>
 
       {/* CTA */}
