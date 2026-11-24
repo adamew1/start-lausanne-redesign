@@ -48,6 +48,7 @@ const App = () => {
       <Nav route={route} />
       <main key={path}><Page /></main>
       <Footer />
+      <PartnerBanner />
     </div>
   );
 };

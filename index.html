@@ -36,6 +36,8 @@
   --rad-sm: 8px;
   --rad-md: 14px;
   --rad-lg: 22px;
+  --partner-ad-height: clamp(44px, 8vw, 92px);
+  --partner-banner-height: calc(var(--partner-ad-height) + 38px + env(safe-area-inset-bottom, 0px));
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
   --shadow-md: 0 10px 30px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
   --shadow-lg: 0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
@@ -94,7 +96,8 @@ body::after {
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* ============ layout ============ */
-.page { min-height: 100vh; position: relative; z-index: 2; }
+.page { min-height: 100vh; position: relative; z-index: 2; padding-bottom: var(--partner-banner-height); }
+html { scroll-padding-bottom: var(--partner-banner-height); }
 .container { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
 @media (max-width: 768px) { .container { padding: 0 20px; } }
 
@@ -483,6 +486,35 @@ h1, h2 { text-transform: uppercase; }
   .sponsor-card-name { font-size: 12px; }
 }
 
+/* ============ fixed partner banner ============ */
+.partner-banner {
+  position: fixed; inset: auto 0 0; z-index: 90;
+  height: var(--partner-banner-height); padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--bg-dark); border-top: 1px solid var(--border-strong);
+}
+.partner-banner-header {
+  max-width: 1600px; height: 30px; margin: auto; padding: 0 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.partner-banner-header h2 { margin: 0; font-size: 12px; letter-spacing: 0.08em; }
+.partner-banner-toggle {
+  background: none; border: 0; padding: 4px 2px; cursor: pointer;
+  color: var(--text-dim); font: inherit; font-size: 12px;
+}
+.partner-banner-toggle:hover { color: var(--accent); }
+.partner-banner-strip {
+  max-width: 1600px; margin: auto; display: flex; overflow-x: auto;
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.partner-banner-set { display: flex; flex: none; gap: 8px; padding-right: 8px; }
+.partner-banner-set a { display: block; flex: none; border-radius: 4px; overflow: hidden; }
+.partner-banner-set img { width: auto; height: var(--partner-ad-height); }
+.partner-banner-set a:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+@media (prefers-reduced-motion: reduce) {
+  .partner-banner-toggle, .partner-banner-set[aria-hidden] { display: none; }
+  .partner-banner-strip { scrollbar-width: thin; }
+}
+
 /* ============ footer ============ */
 .footer {
   border-top: 1px solid var(--border);
@@ -578,9 +610,6 @@ h1, h2 { text-transform: uppercase; }
 <script type="text/babel" src="/src/rtss.jsx"></script>
 <script type="text/babel" src="/src/partners.jsx"></script>
 <script type="text/babel" src="/src/app.jsx"></script>
-
-<!-- Barre « Nos partenaires » (Cashew) : ne pas modifier cette ligne, l’attribut integrity est un verrou de sécurité -->
-<script src="https://www.cash-ew.com/sdk/partenaires-v1.5.js" integrity="sha384-1IUb5BZxuYkNMTSrfwBuuy4tBAfQzYmJZn55nECUwhfkrQf0t12zhtRd/keeDZtv" crossorigin="anonymous" data-theme="noir" data-key="pk_part_185e9aae06aa4373a4fd9d098abd79dd" defer></script>
 
 </body>
 </html>

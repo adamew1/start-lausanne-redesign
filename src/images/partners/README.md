@@ -2,6 +2,8 @@
 
 Home and Partners share the entries in [sponsors.jsx](../../sponsors.jsx). Each card links to the organisation’s homepage.
 
+The fixed “Our Partners” banner uses the `PARTNER_BANNERS` list in the same file. Edit that list to change the order or destination links. The six banner images are stored in [banners/](banners/) at a 6:1 aspect ratio.
+
 | Organisation | Local artwork | Source |
 | --- | --- | --- |
 | HEC Lausanne | `hec-lausanne.png` | Supplied with the website feedback |
