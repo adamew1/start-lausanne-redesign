@@ -23,6 +23,7 @@ const PARTNER_GROUPS = [
       { name: "BluePoint Distribution", logo: "bluepoint.svg", url: "https://bluepointdistribution.com/", event: "START Contest 2024–25" },
       { name: "FOCUSWATER", logo: "focuswater.svg", url: "https://focuswater.ch/", event: "START Contest 2024–25" },
       { name: "Forum EPFL", logo: "forum-epfl.png", url: "https://forum-epfl.ch/" },
+      { name: "IMD MBA students", url: "https://www.imd.org/degree/mba/", event: "Provided the Audience Award for START Contest 2025–26" },
     ],
   },
 ];
@@ -37,9 +38,11 @@ function SponsorGrid({ compact = false }) {
           <li key={partner.name}>
             <a className={"sponsor-card" + (partner.dark ? " sponsor-card--dark" : "")}
                href={partner.url} target="_blank" rel="noopener noreferrer">
-              <span className="sponsor-card-logo">
-                <img src={"/src/images/partners/" + partner.logo} alt="" loading="lazy" decoding="async" />
-              </span>
+              {partner.logo && (
+                <span className="sponsor-card-logo">
+                  <img src={"/src/images/partners/" + partner.logo} alt="" loading="lazy" decoding="async" />
+                </span>
+              )}
               <span className="sponsor-card-name">{partner.name}{partner.event && <small>{partner.event}</small>}</span>
             </a>
           </li>

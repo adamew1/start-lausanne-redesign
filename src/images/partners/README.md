@@ -17,3 +17,5 @@ The fixed “Our Partners” banner uses the `PARTNER_BANNERS` list in the same 
 | FOCUSWATER | `focuswater.svg` | [FOCUSWATER](https://focuswater.ch/wp-content/themes/balanced-flow/dist/assets/logo-70a975f0.svg) |
 
 START Lausanne acknowledged BluePoint Distribution and FOCUSWATER as event sponsors in its [2024–25 START Contest finale recap](https://www.linkedin.com/posts/start-lausanne_startcontest-entrepreneurship-innovation-activity-7329060499533320192-ZGOA).
+
+START Lausanne credited the IMD MBA students with providing the Audience Award in its [2025–26 START Contest finale recap](https://fr.linkedin.com/posts/start-lausanne_startlausanne-startcontest-entrepreneurship-activity-7459682458721210369-Qxu6).
