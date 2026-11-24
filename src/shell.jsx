@@ -427,9 +427,9 @@ function EventDetailShell({ event, children }) {
             <DetailFactPill icon="calendar">{event.details.date}</DetailFactPill>
             <DetailFactPill icon="clock">{event.details.duration}</DetailFactPill>
             <DetailFactPill icon="pin">{event.details.location}</DetailFactPill>
-            {event.registrationUrl && event.id !== "contest" && <Btn primary href={event.registrationUrl}>Register Now</Btn>}
+            {event.registrationUrl && <Btn primary href={event.registrationUrl}>Register Now</Btn>}
           </div>
-          {event.id === "contest" && (
+          {event.infoSessionUrl && (
             <div
               style={{
                 display: "flex",
@@ -441,7 +441,6 @@ function EventDetailShell({ event, children }) {
               <Btn primary href={event.infoSessionUrl}>
                 Info Session
               </Btn>
-              <Btn accent href={event.registrationUrl}>Contest registration by email</Btn>
             </div>
           )}
         </div>
