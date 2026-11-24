@@ -68,7 +68,7 @@ const PartnersPage = () => {
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 28, flexWrap: "wrap", color: "var(--text-dim)", fontSize: 14 }}>
             <a href="mailto:president@startlausanne.ch">Henrik Gruber · president@startlausanne.ch</a>
-            <a href="mailto:partnerships@startlausanne.ch" style={{ color: "inherit" }}>✉ partnerships@startlausanne.ch</a>
+            <a href="mailto:partnerships@startlausanne.ch" style={{ color: "inherit" }}>Aurelia Marchese · partnerships@startlausanne.ch</a>
           </div>
         </div>
       </section>

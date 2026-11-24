@@ -71,11 +71,14 @@ function Footer() {
             <a href="https://www.youtube.com/@startlausanne5235" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
           <div className="footer-col">
-            <h4>Contact</h4>
-            <div className="footer-contact-label">General enquiries · Henrik Gruber, President</div>
-            <a href="mailto:president@startlausanne.ch">president@startlausanne.ch</a>
-            <div className="footer-contact-label">Sponsorship enquiries</div>
-            <a href="mailto:partnerships@startlausanne.ch">partnerships@startlausanne.ch</a>
+            <h4>General enquiries</h4>
+            <div className="footer-contact-label">Henrik Gruber, President</div>
+            <a href="mailto:president@startlausanne.ch">president<wbr />@startlausanne.ch</a>
+          </div>
+          <div className="footer-col">
+            <h4>Sponsorship enquiries</h4>
+            <div className="footer-contact-label">Aurelia Marchese, Head of Finance</div>
+            <a href="mailto:partnerships@startlausanne.ch">partnerships<wbr />@startlausanne.ch</a>
           </div>
         </div>
       </div>
@@ -182,13 +185,20 @@ function SectionLabel({ num, label }) {
 }
 
 // Marquee row
-function Marquee({ items, speed = 40 }) {
-  const copies = [...items, ...items, ...items];
+function Marquee({ items, label, speed = 40 }) {
+  const [paused, setPaused] = React.useState(false);
   return (
     <div className="marquee">
-      <div className="marquee-track" style={{ animationDuration: `${speed}s` }}>
-        {copies.map((it, i) => <div key={`mq-${i}`}>{it}</div>)}
+      <div className="marquee-viewport">
+        <div className="marquee-track" style={{ animationDuration: `${speed}s`, animationPlayState: paused ? "paused" : undefined }}>
+          {[false, true].map(copy => (
+            <ul key={String(copy)} aria-hidden={copy || undefined} aria-label={copy ? undefined : label}>
+              {items.map(item => <li key={item}>{item} <span aria-hidden="true">✦</span></li>)}
+            </ul>
+          ))}
+        </div>
       </div>
+      <button type="button" className="marquee-toggle" onClick={() => setPaused(!paused)} aria-label={paused ? "Play city animation" : "Pause city animation"}>{paused ? "Play" : "Pause"}</button>
     </div>
   );
 }
@@ -417,7 +427,7 @@ function EventDetailShell({ event, children }) {
             <DetailFactPill icon="calendar">{event.details.date}</DetailFactPill>
             <DetailFactPill icon="clock">{event.details.duration}</DetailFactPill>
             <DetailFactPill icon="pin">{event.details.location}</DetailFactPill>
-            {event.registrationUrl && <Btn primary href={event.registrationUrl}>{event.id === "contest" ? "Register for Contest" : "Register Now"}</Btn>}
+            {event.registrationUrl && event.id !== "contest" && <Btn primary href={event.registrationUrl}>Register Now</Btn>}
           </div>
           {event.id === "contest" && (
             <div
@@ -431,6 +441,7 @@ function EventDetailShell({ event, children }) {
               <Btn primary href={event.infoSessionUrl}>
                 Info Session
               </Btn>
+              <Btn accent href={event.registrationUrl}>Contest registration by email</Btn>
             </div>
           )}
         </div>
