@@ -1,6 +1,6 @@
 const DEPARTMENTS = [
   {
-    name: "Committee", description: "Leading START Lausanne and representing the association.",
+    name: "Committee", description: "Leading START Lausanne and representing the association.", email: "president@startlausanne.ch",
     members: [
       { name: "Henrik Gruber", role: "President", email: "henrik.gruber@startlausanne.ch" },
       { name: "Mattia La Gennusa", role: "Vice-President · Head of Intern", email: "mattia.lagennusa@startlausanne.ch" },
